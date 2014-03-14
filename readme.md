@@ -45,8 +45,8 @@ You can now get the company types:
 
 ...and a clean version of the company name.
 
-    >>> short = processing.cleanname()
-    >>> print short
+    >>> clean = processing.cleanname()
+    >>> print clean
     Paul Pharmaceutical
 
 There is also a short version of the company name for times when you want to remove things in parenthesis or everything after a hyphen.  You can access this with `.shortname()`.
