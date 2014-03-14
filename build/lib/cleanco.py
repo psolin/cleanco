@@ -18,17 +18,17 @@ class cleanco():
 		self.lllp = ["lllp", "l.l.l.p."]
 
 		# Corporation
-		self.corp = ["incorporated", "corporation", "corp", " inc", "inc.", "s.p.a.", "n.v."]
+		self.corp = ["incorporated", "corporation", "corp", " inc", " & co.", "inc.", "s.p.a.", "n.v."]
 		# Corporations when string end with these
 		self.corp_end = [" a.g.", " ag", " nuf", " s.a.", " s.f.", " oao"]
 
 		# GP - General Partnership
 		self.gp = ["soc.col.", "stg", "d.n.o.", "ltda.", "v.o.s.", "kgaa", "o.e.", "s.f.", "s.n.c.", "s.a.p.a.", "j.t.d.", "v.o.f.", "sp.j."]
-		self.gp_end = [" og", " sd", " vos", " i/s", " ay", " snc", " oe", " bt.", " s.s.", " mb", " ans", " da", " co.", " o.d.", " hb", "pt"]
+		self.gp_end = [" og", " sd", " vos", " i/s", " ay", " snc", " oe", " bt.", " s.s.", " mb", " ans", " da", " o.d.", " hb", "pt"]
 
 		# LLC - Limited Liability Company (PLC - UK)
-		self.llc = ["pllc", "llc", "l.l.c.", "plc", "hf.", "oyj", "a.e.", "nyrt.", "p.l.c.", "sh.a.", "s.a.", "s.r.l.", "srl.", "aat", "3at", "d.d.", "a.d.", "akc. spol.", "a.s.", "s.r.o.", "s.m.b.a.", "smba", "sarl"]
-		self.llc_end = [" nv", " sa", " aps", " a/s", " p/s", " sae", " sasu", "eurl", " ae", " cpt", " as", " ab", " asa", " ooo", " dat", " vat", " zat", " mchj"]
+		self.llc = ["pllc", "llc", "l.l.c.", "plc", "hf.", "oyj", "a.e.", "nyrt.", "p.l.c.", "sh.a.", "s.a.", "s.r.l.", "srl.", "aat", "3at", "d.d.", "akc. spol.", "a.s.", "s.r.o.", "s.m.b.a.", "smba", "sarl"]
+		self.llc_end = [" nv", " sa", " aps", " a/s", " p/s", " sae", " sasu", "eurl", " ae", " cpt", " as", " ab", " asa", " ooo", " dat", " vat", " zat", " mchj", " a.d."]
 		
 		# LLP - Limited Liability Partnership
 		self.llp = ["llp", "l.l.p.", "sp.p.", "s.c.a.", "s.c.s."]
@@ -73,7 +73,7 @@ class cleanco():
 		self.belarus = ["aat", "3at"]
 		self.belgium = ["esv", "vzw", "vof", "snc", "comm.v", "scs", "bvba", "sprl", "cbva", "cvoa"]
 		self.belgium_end = [" sca", " sep", " gie"]
-		self.bosherz = ["d.d.", "a.d.", "d.n.o.", "d.o.o.", "k.v.", "s.p."]
+		self.bosherz = ["d.d.", " a.d.", "d.n.o.", "d.o.o.", "k.v.", "s.p."]
 		self.brazil = ["ltda", "s.a.", "pllc"]
 		self.bulgaria_end = [" ad", "adsitz", " ead", " et", "kd", "kda", " sd"]
 		self.cambodia = ["gp", "sm pte ltd.", "pte ltd.", "plc ltd.", "peec"]
@@ -135,14 +135,14 @@ class cleanco():
 		self.pakistan = ["ltd.", "pvt. ltd."]
 		self.pakistan_end = [" ltd"]
 		self.peru_end = [" sa", " s.a.", " s.a.a."]
-		self.philippines_end = [" coop.", " corp.", " corp", " co.", " ent.", " inc.", " inc", " llc", " l.l.c.", " ltd."]
+		self.philippines_end = [" coop.", " corp.", " corp", " ent.", " inc.", " inc", " llc", " l.l.c.", " ltd."]
 		self.poland = ["p.p.", "s.k.a.", "sp.j.", "sp.k.", "sp.p.", "sp. z.o.o."]
 		self.poland_end = [" s.c.", " s.a."]
 		self.portugal = ["lda."]
 		self.portugal_end = [" crl", " s.a.", " s.f.", " sgps"]
 		self.romania = ["s.c.a.", "s.c.s.", "s.n.c.", "s.r.l.", "o.n.g."]
 		self.romania_end = [" s.a."]
-		self.russia_end = [" ooo", " oao", "zao", "3ao"]
+		self.russia_end = [" ooo", " oao", " zao", " 3ao"]
 		self.serbia = ["d.o.o.", ]
 		self.serbia_end = [" a.d.", " k.d.", " o.d."]
 		self.singapore = ["bhd", "pte ltd", "sdn bhd"]
@@ -157,7 +157,7 @@ class cleanco():
 		self.uk = ["plc"]
 		self.uk_end = [" uk", " cic", " cio", " l.l.p.", " llp", " l.p.", " lp", " ltd.", " ltd"]
 		self.usa = [" inc.", "corporation", "incorporated" "company", "limited", "corp.", "inc.", "inc", "llp", "l.l.p.", "pllc", " and company", " & company"]
-		self.usa_end = [" usa", " inc", " inc.", " corp.", " corp", " ltd.", "ltd", " co.", " co", " lp"]
+		self.usa_end = [" usa", " inc", " inc.", " corp.", " corp", " ltd.", "ltd", " & co."," co.", " co", " lp"]
 		self.uzbekistan_end = [" mchj", " qmj", " aj", " oaj", " yoaj", " xk", " xt", " ok" " uk", " qk"]
 
 		# Private company?
