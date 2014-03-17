@@ -2,6 +2,6 @@
 
 from distutils.core import setup
 setup(name='cleanco',
-      version='0.3',
+      version='0.4',
       py_modules=['cleanco'],
       )

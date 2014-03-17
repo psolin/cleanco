@@ -12,124 +12,124 @@ class cleanco():
 
 		#Weird US ones
 		# Professional Limited Liability Company - PLLC
-		self.pllc = ["pllc", "p.l.l.c."]
+		self.pllc = [" pllc", " p.l.l.c."]
 
 		# Limited Liability Limited Partnership
-		self.lllp = ["lllp", "l.l.l.p."]
+		self.lllp = [" lllp", " l.l.l.p."]
 
 		# LP - Limited Partnership
-		self.lp = ["gmbh & co. kg", "gmbh & co. kg", " lp", "l.p.", "s.c.s.", "s.c.p.a", "comm.v", "k.d.", "k.d.a.", "s. en c.", "e.e.", "s.a.s.", "s. en c.", "c.v.", "s.k.a.", "sp.k.", "s.cra.", " ky", " scs", " kg", " kd", " k/s", " ee", " secs", " kda", " ks", " kb", " kt"]
+		self.lp = [" gmbh & co. kg", " gmbh & co. kg", " lp", " l.p.", "s.c.s.", "s.c.p.a", "comm.v", "k.d.", "k.d.a.", "s. en c.", "e.e.", "s.a.s.", "s. en c.", "c.v.", "s.k.a.", "sp.k.", "s.cra.", " ky", " scs", " kg", " kd", " k/s", " ee", " secs", " kda", " ks", " kb", " kt"]
 
 		# Corporation
-		self.corporation = ["incorporated", "corporation", "corp", " inc", " & co.", "inc.", "s.p.a.", "n.v.", " a.g.", " ag", " nuf", " s.a.", " s.f.", " oao"]
+		self.corporation = [" company", "incorporated", "corporation", "corp", " inc", " & co.", " & co", "inc.", "s.p.a.", "n.v.", " a.g.", " ag", " nuf", " s.a.", " s.f.", " oao"]
 
 		# GP - General Partnership
-		self.gp = ["soc.col.", "stg", "d.n.o.", "ltda.", "v.o.s.", "kgaa", "o.e.", "s.f.", "s.n.c.", "s.a.p.a.", "j.t.d.", "v.o.f.", "sp.j.", " og", " sd", " vos", " i/s", " ay", " snc", " oe", " bt.", " s.s.", " mb", " ans", " da", " o.d.", " hb", "pt"]
+		self.gp = ["soc.col.", "stg", "d.n.o.", "ltda.", "v.o.s.", "kgaa", "o.e.", "s.f.", "s.n.c.", "s.a.p.a.", "j.t.d.", "v.o.f.", "sp.j.", " og", " sd", " vos", " i/s", " ay", " snc", " oe", " bt.", " s.s.", " mb", " ans", " da", " o.d.", " hb", " pt"]
 
 		# LLC - Limited Liability Company (PLC - UK)
-		self.llc = ["pllc", "llc", "l.l.c.", "plc", "hf.", "oyj", "a.e.", "nyrt.", "p.l.c.", "sh.a.", "s.a.", "s.r.l.", "srl.", "aat", "3at", "d.d.", "akc. spol.", "a.s.", "s.r.o.", "s.m.b.a.", "smba", "sarl", " nv", " sa", " aps", " a/s", " p/s", " sae", " sasu", "eurl", " ae", " cpt", " as", " ab", " asa", " ooo", " dat", " vat", " zat", " mchj", " a.d."]
+		self.llc = [" pllc", " llc", " l.l.c.", "plc.", " plc", " hf.", " oyj", " a.e.", " nyrt.", " p.l.c.", " sh.a.", " s.a.", " s.r.l.", " srl.", " aat", " 3at", " d.d.", " akc. spol.", " a.s.", " s.r.o.", " s.m.b.a.", "smba", "sarl", " nv", " sa", " aps", " a/s", " p/s", " sae", " sasu", "eurl", " ae", " cpt", " as", " ab", " asa", " ooo", " dat", " vat", " zat", " mchj", " a.d."]
 		
 		# LLP - Limited Liability Partnership
-		self.llp = ["llp", "l.l.p.", "sp.p.", "s.c.a.", "s.c.s."]
+		self.llp = [" llp", " l.l.p.", " sp.p.", " s.c.a.", " s.c.s."]
 		
 		# Ltd - Private Company Limited By Shares - UK
-		self.ltd = ["pty. ltd.", "pty ltd", "ltd", "l.t.d.", "bvba", "d.o.o.", "ltda", "gmbh", "g.m.b.h", "kft.", "kht.", "zrt.", "ehf.", "s.a.r.l.", "d.o.o.e.l.", "s. de r.l.", "b.v.", "tapui", "sp. z.o.o.", "s.r.l.", "s.l.", "s.l.n.e.", " ood", " oy", " rt.", " teo", " uab", " scs", " sprl", " limited", " bhd.", " sdn. bhd.", " sdn bhd", " as", " lda.", " tov", " pp"]
+		self.ltd = [" pty. ltd.", " pty ltd", " ltd", " l.t.d.", " bvba", " d.o.o.", "ltda", "gmbh", "g.m.b.h", "kft.", "kht.", "zrt.", "ehf.", "s.a.r.l.", "d.o.o.e.l.", "s. de r.l.", "b.v.", "tapui", "sp. z.o.o.", "s.r.l.", "s.l.", "s.l.n.e.", " ood", " oy", " rt.", " teo", " uab", " scs", " sprl", " limited", " bhd.", " sdn. bhd.", " sdn bhd", " as", " lda.", " tov", " pp"]
 		
-		# PC - Professional Corporation -- contains a comma
-		self.pc_comma = ["p.c.", ", pc", "vof", "snc"]
+		# PC - Professional Corporation
+		self.pc_comma = ["p.c.", ", pc", " vof", " snc"]
 
 		# NL - No Liability - Australia
 		self.nl = [" nl"]
 
 		# SP - Sole Proprietorship
-		self.sp = ["e.u.", "s.p.", "t:mi", "e.v.", "e.c.", " et", " obrt", " fie", " ij", " fop", " xt"]
+		self.sp = [" e.u.", " s.p.", " t:mi", "e.v.", "e.c.", " et", " obrt", " fie", " ij", " fop", " xt"]
 
 		# Joint Stock - Unlimited
-		self.js = ["unltd", "ultd", " sal", "unlimited", " saog", " saoc", " aj", " yoaj", " oaj"]
+		self.js = [" unltd", " ultd", " sal", " unlimited", " saog", " saoc", " aj", " yoaj", " oaj"]
 
 		# Joint Venture
 		self.jv = [" esv", " gie", " kv.", " qk"]
 
 		# Non-Profit
-		self.np = ["vzw", "ses.", "gte."]
+		self.np = [" vzw", " ses.", " gte."]
 
 		# Mutual Fund
-		self.mf = ["sicav"]
+		self.mf = [" sicav"]
 
 		# Countries that can be identified due to specific business types in the name -- thanks Wikipedia!
 		self.albania = ["sh.a.", "sh.p.k."]
 		self.argentina = ["s.a.", "s.r.l.", "s.c.p.a", " scpa", "s.c.e i.", "s.e.", "s.g.r", "soc.col."]
-		self.australia = [" nl", "pty. ltd.", "pty ltd"]
-		self.austria = ["e.u.", "stg", "gesbr", "a.g.", " ag", " og", " kg"]
+		self.australia = ["nl", "pty. ltd.", "pty ltd"]
+		self.austria = ["e.u.", "stg", "gesbr", "a.g.", "ag", "og", "kg"]
 		self.belarus = ["aat", "3at"]
-		self.belgium = ["esv", "vzw", "vof", "snc", "comm.v", "scs", "bvba", "sprl", "cbva", "cvoa", " sca", " sep", " gie"]
-		self.bosherz = ["d.d.", " a.d.", "d.n.o.", "d.o.o.", "k.v.", "s.p."]
-		self.bulgaria = [" ad", "adsitz", " ead", " et", "kd", "kda", " sd"]
-		self.brazil = ["ltda", "s.a.", "pllc", " ad", "adsitz", " ead", " et", "kd", "kda", " sd"]
-		self.cambodia = ["gp", "sm pte ltd.", "pte ltd.", "plc ltd.", "peec", " sp"]
-		self.canada = ["gp", " lp", " sp"]
-		self.chile = ["eirl", "s.a.", "sgr", "s.g.r.", "ltda", "s.p.a.", " sa", "s. en c.", "ltda."]
-		self.columbia = ["s.a.", "e.u.", "s.a.s.", "suc. de descendants", " sca"]
-		self.croatia = ["d.d.", "d.d.o.", " obrt"]
-		self.czech = ["a.s.", "akc. spol.", "s.r.o.", "v.o.s.", "k.s.", " sro", " vos"]
-		self.denmark = [" i/s", " a/s", " k/s", " p/s", "amba", "a.m.b.a.", "fmba", "f.m.b.a.", "smba", "s.m.b.a.", " g/s"]
-		self.domrep = [" c. por a.", "cxa", "s.a.", "s.a.s.", "srl.", "eirl.", " sa", " sas"]
-		self.ecuador = ["s.a.", "c.a.", " sa", " ep"]
-		self.egypt = [" sae"]
-		self.estonia = [" fie"]
-		self.finland = ["t:mi", " ay", " ky", " oy", " oyj", " ok"]
-		self.france = ["sicav", "sarl", "sogepa", " ei", " eurl", " sasu", " fcp", " gie", " sep", " snc", " scs", " sca", " scop", " sem", " sas"]
-		self.germany = ["gmbh & co. kg", "gmbh & co. kg", "e.g.", "e.v.", "gbr", "ohg", "partg", "kgaa", "gmbh", "g.m.b.h.", " ag"]
-		self.greece = [" a.e.", " ae", "e.e.", " ee", " epe", "e.p.e.", " mepe", "m.e.p.e.", "o.e.", " oe", " ovee", "o.v.e.e."]
-		self.guatemala = [" s.a.", " sa"]
+		self.belgium = ["esv", "vzw", "vof", "snc", "comm.v", "scs", "bvba", "sprl", "cbva", "cvoa", " sca", "sep", "gie"]
+		self.bosherz = ["d.d.", "a.d.", "d.n.o.", "d.o.o.", "k.v.", "s.p."]
+		self.bulgaria = [" ad", "adsitz", "ead", "et", "kd", "kda", "sd"]
+		self.brazil = ["ltda", "s.a.", "pllc", "ad", "adsitz", "ead", "et", "kd", "kda", "sd"]
+		self.cambodia = ["gp", "sm pte ltd.", "pte ltd.", "plc ltd.", "peec", "sp"]
+		self.canada = ["gp", "lp", "sp"]
+		self.chile = ["eirl", "s.a.", "sgr", "s.g.r.", "ltda", "s.p.a.", "sa", "s. en c.", "ltda."]
+		self.columbia = ["s.a.", "e.u.", "s.a.s.", "suc. de descendants", "sca"]
+		self.croatia = ["d.d.", "d.d.o.", "obrt"]
+		self.czech = ["a.s.", "akc. spol.", "s.r.o.", "v.o.s.", "k.s.", "sro", "vos"]
+		self.denmark = ["i/s", "a/s", "k/s", "p/s", "amba", "a.m.b.a.", "fmba", "f.m.b.a.", "smba", "s.m.b.a.", "g/s"]
+		self.domrep = ["c. por a.", "cxa", "s.a.", "s.a.s.", "srl.", "eirl.", "sa", "sas"]
+		self.ecuador = ["s.a.", "c.a.", "sa", "ep"]
+		self.egypt = ["sae"]
+		self.estonia = ["fie"]
+		self.finland = ["t:mi", "ay", "ky", " oy", " oyj", " ok"]
+		self.france = ["sicav", "sarl", "sogepa", " ei", " eurl", "sasu", "fcp", "gie", "sep", "snc", "scs", "sca", "scop", "sem", "sas"]
+		self.germany = ["gmbh & co. kg", "gmbh & co. kg", "e.g.", "e.v.", "gbr", "ohg", "partg", "kgaa", "gmbh", "g.m.b.h.", "ag"]
+		self.greece = ["a.e.", "ae", "e.e.", "ee", "epe", "e.p.e.", "mepe", "m.e.p.e.", "o.e.", " oe", "ovee", "o.v.e.e."]
+		self.guatemala = ["s.a.", "sa"]
 		self.haiti = [" sa"]
 		self.hongkong = ["ltd", "unltd", "ultd"]
 		self.hungary = ["e.v.", "e.c.", "bt.", "kft.", "kht.", "kkt.", "k.v.", "zrt.", "nyrt", " ev", " ec", " rt."]
 		self.iceland = ["ehf.", "hf.", "ohf.", "s.f.", "ses."]
-		self.india = ["pvt. ltd.", "ltd.", " psu", " pse"]
-		self.indonesia = [" ud", " fa", " pt"]
+		self.india = ["pvt. ltd.", "ltd.", "psu", "pse"]
+		self.indonesia = [" ud", "fa", "pt"]
 		self.ireland = [" cpt", " teo"]
-		self.israel = [" b.m.", " bm", " ltd"]
-		self.italy = ["s.n.c.", "s.a.s.", "s.p.a.", "s.a.p.a.", "s.r.l.", "s.c.r.l.", " s.s."]
-		self.latvia = [" as", " sia", " ik", " ps", " ks"]
-		self.lebanon = [" sal"]
-		self.lithuania = [" uab", " ab", " ij", " mb"]
+		self.israel = ["b.m.", "bm", "ltd"]
+		self.italy = ["s.n.c.", "s.a.s.", "s.p.a.", "s.a.p.a.", "s.r.l.", "s.c.r.l.", "s.s."]
+		self.latvia = ["as", "sia", "ik", "ps", "ks"]
+		self.lebanon = ["sal"]
+		self.lithuania = ["uab", "ab", "ij", "mb"]
 		self.luxemborg = ["s.a.", "s.a.r.l.", " secs"]
 		self.macedonia = ["d.o.o.", "d.o.o.e.l", "k.d.a.", "j.t.d.", " a.d.", " k.d."]
 		self.malaysia = [" bhd.", "sdn. bhd."]
 		self.mexico = ["s.a.", "s. de. r.l.", "s. en c.", "s.a.b.", "s.a.p.i."]
 		self.mongolia = [" xk", " xxk"]
 		self.netherlands = ["v.o.f.", "c.v.", "b.v.", "n.v."]
-		self.newzealand = ["tapui", " ltd"]
+		self.newzealand = ["tapui", "ltd"]
 		self.nigeria = ["gte.", "plc", " ltd.", "ultd."]
-		self.norway = [" asa", " as", " ans", " ba", " bl", " da", " etat", "fkf", " hf", " iks", " kf", " ks", " nuf", " rhf", " sf"]
+		self.norway = ["asa", "as", "ans", "ba", "bl", "da", "etat", "fkf", "hf", "iks", "kf", "ks", "nuf", "rhf", "sf"]
 		self.oman = ["saog", "saoc"]
-		self.pakistan = ["ltd.", "pvt. ltd.", " ltd"]
-		self.peru = [" sa", " s.a.", " s.a.a."]
-		self.philippines = [" coop.", " corp.", " corp", " ent.", " inc.", " inc", " llc", " l.l.c.", " ltd."]
-		self.poland = ["p.p.", "s.k.a.", "sp.j.", "sp.k.", "sp.p.", "sp. z.o.o.", " s.c.", " s.a."]
+		self.pakistan = ["ltd.", "pvt. ltd.", "ltd"]
+		self.peru = ["sa", "s.a.", "s.a.a."]
+		self.philippines = ["coop.", "corp.", "corp", "ent.", "inc.", "inc", "llc", "l.l.c.", "ltd."]
+		self.poland = ["p.p.", "s.k.a.", "sp.j.", "sp.k.", "sp.p.", "sp. z.o.o.", "s.c.", "s.a."]
 		self.portugal = ["lda.", " crl", " s.a.", " s.f.", " sgps"]
-		self.romania = ["s.c.a.", "s.c.s.", "s.n.c.", "s.r.l.", "o.n.g.", " s.a."]
-		self.russia = [" ooo", " oao", " zao", " 3ao"]
-		self.serbia = ["d.o.o.", " a.d.", " k.d.", " o.d."]
+		self.romania = ["s.c.a.", "s.c.s.", "s.n.c.", "s.r.l.", "o.n.g.", "s.a."]
+		self.russia = ["ooo", "oao", "zao", "3ao"]
+		self.serbia = ["d.o.o.", "a.d.", "k.d.", "o.d."]
 		self.singapore = ["bhd", "pte ltd", "sdn bhd", "llp", " l.l.p.", " ltd.", "pte"]
 		self.slovokia = [" a.s.", " s.r.o.", " k.s.", " v.o.s."]
-		self.slovenia = [" d.d.", " d.o.o.", " d.n.o.", " k.d.", " s.p."]
-		self.spain = [" s.a.", " s.a.d.", " s.l.", " s.l.l.", " s.l.n.e.", " s.c.", " s.cra", " s.coop", " sal", " sccl"]
+		self.slovenia = ["d.d.", "d.o.o.", "d.n.o.", "k.d.", "s.p."]
+		self.spain = ["s.a.", "s.a.d.", "s.l.", "s.l.l.", "s.l.n.e.", "s.c.", "s.cra", "s.coop", "sal", "sccl"]
 		self.sweden = [" ab", " hb", " kb"]
-		self.switzerland = [" ab", " sa", " gmbh", " g.m.b.h.", " sarl", " sagl"]
-		self.turkey = [" koop."]
-		self.ukraine = [" dat", " fop", " kt", " pt", " tdv", " tov", " pp", " vat", " zat", " at"]
-		self.uk = ["plc", " uk", " cic", " cio", " l.l.p.", " llp", " l.p.", " lp", " ltd.", " ltd"]
-		self.usa = [" llc", " inc.", "corporation", "incorporated" "company", "limited", "corp.", "inc.", "inc", "llp", "l.l.p.", "pllc", " and company", " & company", " usa", " inc", " inc.", " corp.", " corp", " ltd.", "ltd", " & co."," co.", " co", " lp", ", pc", " us"]
-		self.uzbekistan = [" mchj", " qmj", " aj", " oaj", " yoaj", " xk", " xt", " ok" " uk", " qk"]
+		self.switzerland = ["ab", "sa", " gmbh", "g.m.b.h.", "sarl", "sagl"]
+		self.turkey = ["koop."]
+		self.ukraine = ["dat", "fop", "kt", "pt", "tdv", "tov", "pp", "vat", "zat", "at"]
+		self.uk = ["plc.", "plc", "uk", "cic", "cio", "l.l.p.", "llp", "l.p.", "lp", "ltd.", "ltd"]
+		self.usa = [" llc", " inc.", "corporation", "incorporated", "company", "limited", "corp.", "inc.", "inc", "llp", "l.l.p.", "pllc", "and company", "& company", "usa", "inc", "inc.", "corp.", "corp", "ltd.", "ltd", "& co.", "& co", "co.", "co", "lp", ", pc", "us"]
+		self.uzbekistan = ["mchj", "qmj", "aj", "oaj", "yoaj", "xk", "xt", "ok" "uk", "qk"]
 
 		# Private company?
 		self.pte = ["private", "pte", " xk"]
 
 		
 		## Abbreviations ##
-		self.abbv  = {'intl.':'International', 'intl':'International', 'co.':'Company', 'mfg':'Manufacturing'}
+		self.abbv  = {'intl.':'International', 'intl':'International', 'co.':'Company', 'mfg':'Manufacturing', ' med ':' Medical ', 'ctr':'Center'}
 
 		# Abbreviations when strings end with these
 		self.abbvend = {' co':'Company'}
@@ -143,8 +143,15 @@ class cleanco():
 		self.education = ["education", "university", "school of", "academy"]
 
 	def masterlist(self):
-		mlist = self.pllc + self.lllp + self.lp + self.corporation + self.gp + self.llc + self.llp + self.ltd + self.pc_comma + self.nl + self.sp + self.js + self.jv + self.np + self.mf + self.albania + self.argentina + self.australia + self.austria + self.belarus + self.belgium + self.bosherz + self.bulgaria + self.brazil + self.cambodia + self.canada + self.chile + self.columbia + self.croatia + self.czech + self.denmark + self.domrep + self.ecuador + self.egypt + self.estonia + self.finland + self.france + self.germany + self.greece + self.guatemala + self.haiti + self.hongkong + self.hungary + self.iceland + self.india + self.indonesia + self.ireland + self.israel + self.italy + self.latvia + self.lebanon + self.lithuania + self.luxemborg + self.macedonia + self.malaysia + self.mexico + self.mongolia + self.netherlands + self.newzealand + self.nigeria + self.norway + self.oman + self.pakistan + self.peru + self.philippines + self.poland + self.portugal + self.romania + self.russia + self.serbia + self.singapore + self.slovokia + self.slovenia + self.spain + self.sweden + self.switzerland + self.turkey + self.ukraine + self.uk + self.usa + self.uzbekistan
-		return list(OrderedDict.fromkeys(mlist))
+		mlist = self.albania + self.argentina + self.australia + self.austria + self.belarus + self.belgium + self.bosherz + self.bulgaria + self.brazil + self.cambodia + self.canada + self.chile + self.columbia + self.croatia + self.czech + self.denmark + self.domrep + self.ecuador + self.egypt + self.estonia + self.finland + self.france + self.germany + self.greece + self.guatemala + self.haiti + self.hongkong + self.hungary + self.iceland + self.india + self.indonesia + self.ireland + self.israel + self.italy + self.latvia + self.lebanon + self.lithuania + self.luxemborg + self.macedonia + self.malaysia + self.mexico + self.mongolia + self.netherlands + self.newzealand + self.nigeria + self.norway + self.oman + self.pakistan + self.peru + self.philippines + self.poland + self.portugal + self.romania + self.russia + self.serbia + self.singapore + self.slovokia + self.slovenia + self.spain + self.sweden + self.switzerland + self.turkey + self.ukraine + self.uk + self.usa + self.uzbekistan
+		mlist = list(OrderedDict.fromkeys(mlist))
+		mlist.sort(key=len, reverse=True)
+		
+		mlist2 = []
+		for item in mlist:
+			mlist2.append(" " + item)
+
+		return mlist
 
 	def type(self):
 		
