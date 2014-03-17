@@ -1,6 +1,6 @@
 from cleanco import cleanco
 
-companyname = "Pfizer (Corporate)"
+companyname = "GlaxoSmithKline plc."
 cleanco = cleanco(companyname)
 
 bustype = cleanco.type()
