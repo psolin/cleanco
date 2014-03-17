@@ -121,7 +121,7 @@ class cleanco():
 		self.turkey = [" koop."]
 		self.ukraine = [" dat", " fop", " kt", " pt", " tdv", " tov", " pp", " vat", " zat", " at"]
 		self.uk = ["plc", " uk", " cic", " cio", " l.l.p.", " llp", " l.p.", " lp", " ltd.", " ltd"]
-		self.usa = [" inc.", "corporation", "incorporated" "company", "limited", "corp.", "inc.", "inc", "llp", "l.l.p.", "pllc", " and company", " & company", " usa", " inc", " inc.", " corp.", " corp", " ltd.", "ltd", " & co."," co.", " co", " lp", ", pc"]
+		self.usa = [" llc", " inc.", "corporation", "incorporated" "company", "limited", "corp.", "inc.", "inc", "llp", "l.l.p.", "pllc", " and company", " & company", " usa", " inc", " inc.", " corp.", " corp", " ltd.", "ltd", " & co."," co.", " co", " lp", ", pc", " us"]
 		self.uzbekistan = [" mchj", " qmj", " aj", " oaj", " yoaj", " xk", " xt", " ok" " uk", " qk"]
 
 		# Private company?
@@ -680,6 +680,14 @@ class cleanco():
 		else:
 			return country_set
 
+	def spacecleanup(self, corpname):
+
+		corpname = corpname.lstrip()
+		corpname = corpname.strip()
+		corpname = " ".join(corpname.split())
+
+		return corpname
+
 
 	# A clean version of the business name
 	def cleanname(self):
@@ -693,6 +701,9 @@ class cleanco():
 				end = len(item)
 				end = end * -1
 				corpname = corpname[0:end]
+				corpname = corpname.lstrip()
+				corpname = corpname.strip()
+				corpname = " ".join(corpname.split())
 
 		# Abbrv. cleanup
 		for abbv in self.abbv:
@@ -720,23 +731,26 @@ class cleanco():
 	# A short version of the corporate name
 	def shortname(self):
 
-		corpname = self.corpname
-
-		# Run the corpname through cleanname first
 		corpname = self.cleanname()
-		
+				
 		# Get rid of everything in parenthesis
 		if " (" and ")" in corpname:
 			beginpar = corpname.find(" (")
 			endpar = corpname.find(")")
 			corpname = corpname.replace(corpname[beginpar:endpar+1],"")
 
-		# Get rid of everything after hyphens
+		# Get rid of everything after hyphen and spaces
 		if " - " in corpname:
 			corplen = len(corpname)
 			hypenloc = corpname.find(" - ")
 			corpname = corpname.replace(corpname[hypenloc:corplen],"")
 
+		# Replace single hyphen with space
+		if "-" in corpname:
+			corplen = len(corpname)
+			hypenloc = corpname.find("-")
+			corpname = corpname.replace("-"," ")
+		
 		# Get rid of misc spaces in between
 		corpname = " ".join(corpname.split())
 
