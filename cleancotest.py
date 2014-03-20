@@ -1,20 +1,15 @@
 from cleanco import cleanco
 
-companyname = "GlaxoSmithKline plc."
-cleanco = cleanco(companyname)
+business_name = "Merck Pharmaceutials - Corporate (formerly Not Merck) LLC"
 
-bustype = cleanco.type()
-busind = cleanco.industry()
-cleanname = cleanco.cleanname()
-short = cleanco.shortname()
-country = cleanco.country()
+processing = cleanco(business_name)
+x = processing.cleaner()
 
 print
-print("String: %s") % companyname
+print business_name
 print
-print("Clean Name: %s") % cleanname
-print("Short Name: %s") % short
-print("Possible Business Types: %s") % bustype
-print("Possible Industry: %s") % busind
-print("Possible Country: %s") % country
+print("Clean Name: %s") % (x.clean_name)
+print("Possible Industries: %s") % (x.industry)
+print("Possible Business Types: %s") % (x.type)
+print("Possible Countries: %s") % (x.country)
 print

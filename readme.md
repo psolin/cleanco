@@ -1,4 +1,4 @@
-#cleanco
+#cleanco - 1.0
 
 ## What is it / what does it do?
 This is a Python module that processes company names.
@@ -8,9 +8,6 @@ Download it from this site and unzip the directory.
 
 * Mac: `cd` into it, and enter `sudo python setup.py install` along with your system password.
 * Windows: Same thing but without `sudo`.
-* Linux: ???
-
-There may also be a way to do `pip install` but I can't guarantee this.
 
 ## How does the module work?
 Let's look at some sample code.  First, initialize the module:
@@ -19,37 +16,32 @@ Let's look at some sample code.  First, initialize the module:
 
 Now, come up with a company name that you want to process:
 
-    >>> companyname = "Paul Pharmaceutical, Inc."
+    >>> business_name = "Some Big Pharma, LLC"
 
 Throw it into the module:
 
-    >>> processing = cleanco(companyname)
+    >>> processing = cleanco(business_name)
+    >>> x = processing.cleaner()
 
 You can now get the company types:
 
-    >>> cotype = processing.type()
-    >>> print cotype
-    ['Corporation']
+    >>> x.type
+    ['Limited Liability Company']
 
 ...the possible countries...
 
-    >>> country = processing.country()
-    >>> print country
-    ['Philippines', 'United States']
+    >>> x.country
+    ['United States of America', 'Philippines']
 
 ...the possible industries...
 
-    >>> industry = processing.industry()
-    >>> print industry
+    >>> x.industry
     ['Pharmaceutical']
 
 ...and a clean version of the company name.
 
-    >>> clean = processing.cleanname()
-    >>> print clean
-    Paul Pharmaceutical
-
-There is also a short version of the company name for times when you want to remove things in parenthesis or everything after a hyphen.  You can access this with `.shortname()`.
+    >>> x.clean_name
+    'Some Big Pharma'
 
 ## Are there bugs?
 You better believe it.  Please let me know or fork this project.  I'm sure some of the company suffixes are way incorrect and I'm missing a lot more information.
