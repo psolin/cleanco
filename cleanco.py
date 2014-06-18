@@ -23,7 +23,7 @@ class cleanco():
 		type_dict['Joint Venture'] = ["esv", "gie", "kv.", "qk"]
 		type_dict['Non-Profit'] = ["vzw", "ses.", "gte."]
 		type_dict['Mutual Fund'] = ["sicav"]
-		type_dict['Private Company'] = ["private", "pte", " xk"]
+		type_dict['Private Company'] = ["private", "pte", "xk"]
 
 		# Countries that can be identified due to specific business types in the name -- thanks Wikipedia!
 		country_dict = {}
