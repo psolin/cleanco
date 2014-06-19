@@ -1,7 +1,7 @@
 #cleanco - 1.0
 
 ## What is it / what does it do?
-This is a Python module that processes company names.
+This is a Python module that processes company names, in terms of US/UK business entity types.
 
 ## How do I install it?
 Download it from this site and unzip the directory.
