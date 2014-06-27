@@ -246,11 +246,14 @@ class cleanco():
 
 		return business_name
 
-	def cleaner(self):
-
-		self.clean_name = self.cleanname()
-		self.industry = self.industry()
-		self.type = self.end_strip(self.sorted_types)
-		self.country = self.end_strip(self.sorted_countries)
+	def type(self):
 		
-		return self
+		self.type = self.end_strip(self.sorted_types)
+
+		return self.type
+
+	def country(self):
+
+		self.country = self.end_strip(self.sorted_countries)
+
+		return self.country

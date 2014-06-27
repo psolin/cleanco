@@ -1,4 +1,4 @@
-#cleanco - 1.0
+#cleanco - 1.1
 
 ## What is it / what does it do?
 This is a Python module that processes company names, in terms of US/UK business entity types.
@@ -9,7 +9,7 @@ Download it from this site and unzip the directory.
 * Mac: `cd` into it, and enter `sudo python setup.py install` along with your system password.
 * Windows: Same thing but without `sudo`.
 
-## How does the module work?
+## How does it work?
 Let's look at some sample code.  First, initialize the module:
 
     >>> from cleanco import cleanco
@@ -18,29 +18,28 @@ Now, come up with a company name that you want to process:
 
     >>> business_name = "Some Big Pharma, LLC"
 
-Throw it into the module:
+Throw it into the code:
 
-    >>> processing = cleanco(business_name)
-    >>> x = processing.cleaner()
+    >>> x = cleanco(business_name)
 
 You can now get the company types:
 
-    >>> x.type
+    >>> x.type()
     ['Limited Liability Company']
 
 ...the possible countries...
 
-    >>> x.country
+    >>> x.country()
     ['United States of America', 'Philippines']
 
 ...the possible industries...
 
-    >>> x.industry
+    >>> x.industry()
     ['Pharmaceutical']
 
 ...and a clean version of the company name.
 
-    >>> x.clean_name
+    >>> x.clean_name()
     'Some Big Pharma'
 
 ## Are there bugs?
