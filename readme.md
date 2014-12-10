@@ -10,15 +10,15 @@ Download it from this site and unzip the directory.
 * Windows: Same thing but without `sudo`.
 
 ## How does it work?
-Let's look at some sample code.  First, initialize the module:
+Let's look at some sample code.  First, create an instance of the module:
 
     >>> from cleanco import cleanco
 
-Now, come up with a company name that you want to process:
+Prepare a string of a company name that you want to process:
 
     >>> business_name = "Some Big Pharma, LLC"
 
-Throw it into the code:
+Throw it into the instance:
 
     >>> x = cleanco(business_name)
 
@@ -43,7 +43,7 @@ You can now get the company types:
     'Some Big Pharma'
 
 ## Are there bugs?
-You better believe it.  Please let me know or fork this project.  I'm sure some of the company suffixes are way incorrect and I'm missing a lot more information.
+You better believe it.  Please let me know or fork this project.  I'm sure some of the company suffixes are way incorrect and I'm missing a lot more information.  There may be a better way to do industries by way of NAICS codes, as well (it may be deprecated in later versions).
 
 ## Special thanks to:
 Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity), where I spent hours of research.
