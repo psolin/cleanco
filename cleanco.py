@@ -204,7 +204,7 @@ class cleanco():
 			return None
 
 	# A clean version of the business name
-	def cleanname(self):
+	def clean_name(self):
 
 		business_name = self.business_name
 
