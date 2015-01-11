@@ -32,11 +32,6 @@ You can now get the company types:
     >>> x.country()
     ['United States of America', 'Philippines']
 
-...the possible industries...
-
-    >>> x.industry()
-    ['Pharmaceutical']
-
 ...and a clean version of the company name.
 
     >>> x.clean_name()

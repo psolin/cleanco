@@ -100,13 +100,6 @@ class cleanco():
 		# Abbreviations when strings end with these
 		self.abbvend = {' co':'Company'}
 
-		# Industry
-		industry_dict = {}
-		industry_dict['Pharmaceutical'] = ["therapeutic", "biopharmaceuticals", "biopharmaceutical", "biopharma", "biopharm", "pharmaceuticals", "pharmaceutical", "pharma"]
-		industry_dict['Biotechnology'] = ["therapeutic", "biopharmaceuticals", "biopharmaceutical", "biopharma", "biopharm", "biotechnology", "biotechnologies", "bioventures", "biolabs", "biosciences", "bioscience", "biotech"]
-		industry_dict['Engineering'] = ["engineer"]
-		industry_dict['Education'] = ["education", "university", "school of", "academy"]
-
 		# Sorted business types / abbreviation by length of business type
 		sorted_types = []
 		for business_type in type_dict:
@@ -132,16 +125,6 @@ class cleanco():
 			suffix_sort.append(item[1])
 
 		self.suffix_sort = sorted(suffix_sort, key=lambda part: len(part), reverse=True)
-
-		# Industries put into a giant listing
-		industry_list = []
-		for industry in industry_dict:
-			for item in industry_dict[industry]:
-				temp_tuple = [industry, item]
-				industry_list.append(temp_tuple)
-
-		self.industry_list = industry_list
-
 
 	def string_stripper(self, business_name):
 		
@@ -183,23 +166,6 @@ class cleanco():
 
 		if end_set != []:
 			return end_set
-		else:
-			return None
-
-	def industry(self):
-
-		industry_set = []
-
-		business_name = self.business_name
-
-		for industry, keyword in self.industry_list:
-			if keyword in business_name.lower():
-				industry_set.append(industry)
-
-		industry_set = list(OrderedDict.fromkeys(industry_set))
-
-		if industry_set != []:
-			return industry_set
 		else:
 			return None
 
