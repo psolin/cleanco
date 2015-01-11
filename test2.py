@@ -1,6 +1,6 @@
 from cleanco import cleanco
 
-business_name = "Paul"
+business_name = "Paul, Corp."
 
 x = cleanco(business_name)
 
