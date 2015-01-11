@@ -38,7 +38,7 @@ You can now get the company types:
     'Some Big Pharma'
 
 ## Are there bugs?
-You better believe it.  Please let me know or fork this project.  I'm sure some of the company suffixes are way incorrect and I'm missing a lot more information.
+You better believe it.  Please let me know or fork this project.  I'm sure some of the company suffixes are way incorrect and I'm missing a lot more information.  There may be a better way to do industries by way of NAICS codes, as well (it may be deprecated in later versions).
 
 ## Special thanks to:
 Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity), where I spent hours of research.
