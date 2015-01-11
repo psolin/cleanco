@@ -11,7 +11,7 @@ class cleanco():
 		type_dict['Professional Limited Liability Company'] = ["pllc", "p.l.l.c."]
 		type_dict['Limited Liability Limited Partnership'] = ["lllp", "l.l.l.p."]
 		type_dict['Limited Partnership'] = ["gmbh & co. kg", "gmbh & co. kg", "lp", "l.p.", "s.c.s.", "s.c.p.a", "comm.v", "k.d.", "k.d.a.", "s. en c.", "e.e.", "s.a.s.", "s. en c.", "c.v.", "s.k.a.", "sp.k.", "s.cra.", "ky", "scs", "kg", "kd", "k/s", "ee", "secs", "kda", "ks", "kb", "kt"]
-		type_dict['Corporation'] = ["company", "incorporated", "corporation", "corp", "inc", "& co.", "& co", "inc.", "s.p.a.", "n.v.", "a.g.", "ag", "nuf", "s.a.", "s.f.", "oao", "co."]
+		type_dict['Corporation'] = ["company", "incorporated", "corporation", "corp", "inc", "& co.", "& co", "inc.", "s.p.a.", "n.v.", "a.g.", "ag", "nuf", "s.a.", "s.f.", "oao", "co.", "co"]
 		type_dict['General Partnership'] = ["soc.col.", "stg", "d.n.o.", "ltda.", "v.o.s.", "kgaa", "o.e.", "s.f.", "s.n.c.", "s.a.p.a.", "j.t.d.", "v.o.f.", "sp.j.", "og", "sd", "vos", " i/s", "ay", "snc", "oe", "bt.", "s.s.", "mb", "ans", "da", "o.d.", "hb", "pt"]
 		type_dict['Limited Liability Company'] = ["pllc", "llc", "l.l.c.", "plc.", "plc", "hf.", "oyj", "a.e.", "nyrt.", "p.l.c.", "sh.a.", "s.a.", "s.r.l.", "srl.", "aat", "3at", "d.d.", "akc. spol.", "a.s.", "s.r.o.", "s.m.b.a.", "smba", "sarl", "nv", "sa", "aps", "a/s", "p/s", "sae", "sasu", "eurl", "ae", "cpt", "as", "ab", "asa", "ooo", "dat", "vat", "zat", "mchj", "a.d."]
 		type_dict['Limited Liability Partnership'] = ["llp", "l.l.p.", "sp.p.", "s.c.a.", "s.c.s."]
@@ -95,10 +95,7 @@ class cleanco():
 		country_dict['Uzbekistan'] = ["mchj", "qmj", "aj", "oaj", "yoaj", "xk", "xt", "ok", "uk", "qk"]
 
 		## Abbreviations ##
-		self.abbv  = {'intl.':'International', 'intl':'International', 'co.':'Company', 'mfg':'Manufacturing', ' med ':' Medical ', 'ctr':'Center'}
-
-		# Abbreviations when strings end with these
-		self.abbvend = {' co':'Company'}
+		self.abbv  = {'intl.':'International', 'intl':'International', 'mfg':'Manufacturing', ' med ':' Medical ', ' ctr':'Center'}
 
 		# Sorted business types / abbreviation by length of business type
 		sorted_types = []
@@ -201,7 +198,7 @@ class cleanco():
 
 		# Get rid of country items:
 		for item in self.suffix_sort:
-			if ((business_name.lower()).endswith(item)):
+			if ((business_name.lower()).endswith(" " + item)):
 				start = (business_name.lower()).find(item)
 				end = len(item)
 				end = end * -1
