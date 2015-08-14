@@ -2,7 +2,8 @@
 
 from distutils.core import setup
 setup(name='cleanco',
-      version='1.1',
+      description='Python library to process company names'
+      version='1.0',
       url='https://github.com/psolin/cleanco',
       author='Paul Solin',
       author_email='paul@paulsolin.com',
