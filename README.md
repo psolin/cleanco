@@ -1,4 +1,4 @@
-#cleanco - 1.1
+# cleanco - 1.1
 
 ## What is it / what does it do?
 This is a Python module that processes company names, in terms of US/UK business entity types.
