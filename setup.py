@@ -2,7 +2,7 @@
 
 from distutils.core import setup
 setup(name='cleanco',
-      description='Python library to process company names'
+      description='Python library to process company names',
       version='1.0',
       url='https://github.com/psolin/cleanco',
       author='Paul Solin',
