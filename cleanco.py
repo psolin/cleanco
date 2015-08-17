@@ -2,32 +2,32 @@
 from collections import OrderedDict
 import re
 class cleanco():
-	
+
 	def __init__(self, business_name):
-		
+
 		self.business_name = business_name
 
 		# Business Types
 		type_dict = {}
 		type_dict['Professional Limited Liability Company'] = ["pllc", "p.l.l.c."]
 		type_dict['Limited Liability Limited Partnership'] = ["lllp", "l.l.l.p."]
-		type_dict['Limited Partnership'] = ["gmbh & co. kg", "gmbh & co. kg", "lp", "l.p.", 
-		"s.c.s.", "s.c.p.a", "comm.v", "k.d.", "k.d.a.", "s. en c.", "e.e.", "s.a.s.", "s. en c.", 
-		"c.v.", "s.k.a.", "sp.k.", "s.cra.", "ky", "scs", "kg", "kd", "k/s", "ee", "secs", "kda", "ks", 
+		type_dict['Limited Partnership'] = ["gmbh & co. kg", "gmbh & co. kg", "lp", "l.p.",
+		"s.c.s.", "s.c.p.a", "comm.v", "k.d.", "k.d.a.", "s. en c.", "e.e.", "s.a.s.", "s. en c.",
+		"c.v.", "s.k.a.", "sp.k.", "s.cra.", "ky", "scs", "kg", "kd", "k/s", "ee", "secs", "kda", "ks",
 		"kb", "kt"]
-		type_dict['Corporation'] = ["company", "incorporated", "corporation", "corp.", "corp", "inc", "& co.", "& co", 
+		type_dict['Corporation'] = ["company", "incorporated", "corporation", "corp.", "corp", "inc", "& co.", "& co",
 		"inc.", "s.p.a.", "n.v.", "a.g.", "ag", "nuf", "s.a.", "s.f.", "oao", "co.", "co"]
-		type_dict['General Partnership'] = ["soc.col.", "stg", "d.n.o.", "ltda.", "v.o.s.", "kgaa", "o.e.", 
-		"s.f.", "s.n.c.", "s.a.p.a.", "j.t.d.", "v.o.f.", "sp.j.", "og", "sd", "vos", " i/s", "ay", "snc", "oe", 
+		type_dict['General Partnership'] = ["soc.col.", "stg", "d.n.o.", "ltda.", "v.o.s.", "kgaa", "o.e.",
+		"s.f.", "s.n.c.", "s.a.p.a.", "j.t.d.", "v.o.f.", "sp.j.", "og", "sd", "vos", " i/s", "ay", "snc", "oe",
 		"bt.", "s.s.", "mb", "ans", "da", "o.d.", "hb", "pt"]
-		type_dict['Limited Liability Company'] = ["pllc", "llc", "l.l.c.", "plc.", "plc", "hf.", "oyj", "a.e.", "nyrt.", 
-		"p.l.c.", "sh.a.", "s.a.", "s.r.l.", "srl.", "aat", "3at", "d.d.", "akc. spol.", "a.s.", "s.r.o.", "s.m.b.a.", 
-		"smba", "sarl", "nv", "sa", "aps", "a/s", "p/s", "sae", "sasu", "eurl", "ae", "cpt", "as", "ab", "asa", "ooo", "dat", 
+		type_dict['Limited Liability Company'] = ["pllc", "llc", "l.l.c.", "plc.", "plc", "hf.", "oyj", "a.e.", "nyrt.",
+		"p.l.c.", "sh.a.", "s.a.", "s.r.l.", "srl.", "aat", "3at", "d.d.", "akc. spol.", "a.s.", "s.r.o.", "s.m.b.a.",
+		"smba", "sarl", "nv", "sa", "aps", "a/s", "p/s", "sae", "sasu", "eurl", "ae", "cpt", "as", "ab", "asa", "ooo", "dat",
 		"vat", "zat", "mchj", "a.d."]
 		type_dict['Limited Liability Partnership'] = ["llp", "l.l.p.", "sp.p.", "s.c.a.", "s.c.s."]
-		type_dict['Limited'] = ["pty. ltd.", "pty ltd", "ltd", "l.t.d.", "bvba", "d.o.o.", "ltda", "gmbh", "g.m.b.h", 
-		"kft.", "kht.", "zrt.", "ehf.", "s.a.r.l.", "d.o.o.e.l.", "s. de r.l.", "b.v.", "tapui", "sp. z.o.o.", "s.r.l.", 
-		"s.l.", "s.l.n.e.", "ood", "oy", "rt.", "teo", "uab", "scs", "sprl", "limited", "bhd.", "sdn. bhd.", "sdn bhd", 
+		type_dict['Limited'] = ["pty. ltd.", "pty ltd", "ltd", "l.t.d.", "bvba", "d.o.o.", "ltda", "gmbh", "g.m.b.h",
+		"kft.", "kht.", "zrt.", "ehf.", "s.a.r.l.", "d.o.o.e.l.", "s. de r.l.", "b.v.", "tapui", "sp. z.o.o.", "s.r.l.",
+		"s.l.", "s.l.n.e.", "ood", "oy", "rt.", "teo", "uab", "scs", "sprl", "limited", "bhd.", "sdn. bhd.", "sdn bhd",
 		"as", "lda.", "tov", "pp"]
 		type_dict['Professional Corporation'] = ["p.c.", "vof", "snc"]
 		type_dict['No Liability'] = ["nl"]
@@ -61,7 +61,7 @@ class cleanco():
 		country_dict['Egypt'] = ["sae"]
 		country_dict['Estonia'] = ["fie"]
 		country_dict['Finland'] = ["t:mi", "ay", "ky", "oy", "oyj", "ok"]
-		country_dict['France'] = ["sicav", "sarl", "sogepa", "ei", "eurl", "sasu", "fcp", "gie", "sep", "snc", "scs", "sca", 
+		country_dict['France'] = ["sicav", "sarl", "sogepa", "ei", "eurl", "sasu", "fcp", "gie", "sep", "snc", "scs", "sca",
 		"scop", "sem", "sas"]
 		country_dict['Germany'] = ["gmbh & co. kg", "gmbh & co. kg", "e.g.", "e.v.", "gbr", "ohg", "partg", "kgaa", "gmbh", "g.m.b.h.", "ag"]
 		country_dict['Greece'] = ["a.e.", "ae", "e.e.", "ee", "epe", "e.p.e.", "mepe", "m.e.p.e.", "o.e.", "oe", "ovee", "o.v.e.e."]
@@ -105,7 +105,7 @@ class cleanco():
 		country_dict['Turkey'] = ["koop."]
 		country_dict['Ukraine'] = ["dat", "fop", "kt", "pt", "tdv", "tov", "pp", "vat", "zat", "at"]
 		country_dict['United Kingdon'] = ["plc.", "plc", "cic", "cio", "l.l.p.", "llp", "l.p.", "lp", "ltd.", "ltd", "limited"]
-		country_dict['United States of America'] = ["llc", "inc.", "corporation", "incorporated", "company", "limited", "corp.", "inc.", 
+		country_dict['United States of America'] = ["llc", "inc.", "corporation", "incorporated", "company", "limited", "corp.", "inc.",
 		"inc", "llp", "l.l.p.", "pllc", "and company", "& company", "inc", "inc.", "corp.", "corp", "ltd.", "ltd", "& co.", "& co", "co.",
 		 "co", "lp"]
 		country_dict['Uzbekistan'] = ["mchj", "qmj", "aj", "oaj", "yoaj", "xk", "xt", "ok", "uk", "qk"]
@@ -202,7 +202,7 @@ class cleanco():
 		return business_name
 
 	def type(self):
-		
+
 		self.type = self.end_strip(self.sorted_types)
 
 		return self.type
