@@ -192,8 +192,7 @@ class cleanco():
 			if ((business_name.lower()).endswith(" " + item)):
 				start = (business_name.lower()).find(item)
 				end = len(item)
-				end = end * -1
-				business_name = business_name[0:end]
+				business_name = business_name[0:-end]
 				business_name = self.string_stripper(business_name)
 				break
 
