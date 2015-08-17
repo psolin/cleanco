@@ -141,10 +141,7 @@ class cleanco():
 
 	def string_stripper(self, business_name):
 
-		# Strip spaces on the left
-		business_name = business_name.lstrip()
-
-		# Strip spaces on the right
+		# Strip spaces on left and right
 		business_name = business_name.strip()
 
 		# Get rid of misc spaces in between
