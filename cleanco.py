@@ -60,7 +60,7 @@ class cleanco():
 		country_dict['Ecuador'] = ["s.a.", "c.a.", "sa", "ep"]
 		country_dict['Egypt'] = ["sae"]
 		country_dict['Estonia'] = ["fie"]
-		country_dict['Finland'] = ["t:mi", "ay", "ky", "oy", "oyj", "ok"]
+		country_dict['Finland'] = ["t:mi", "tmi", "as oy", "as.oy", "ay", "ky", "oy", "oyj", "ok"]
 		country_dict['France'] = ["sicav", "sarl", "sogepa", "ei", "eurl", "sasu", "fcp", "gie", "sep", "snc", "scs", "sca",
 		"scop", "sem", "sas"]
 		country_dict['Germany'] = ["gmbh & co. kg", "gmbh & co. kg", "e.g.", "e.v.", "gbr", "ohg", "partg", "kgaa", "gmbh", "g.m.b.h.", "ag"]
