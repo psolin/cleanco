@@ -43,10 +43,7 @@ class cleanco():
 
 	def string_stripper(self, business_name):
 
-		# Strip spaces on left and right
-		business_name = business_name.strip()
-
-		# Get rid of misc spaces in between
+		# Get rid of extra prefix-, suffix- & in-between spaces
 		business_name = " ".join(business_name.split())
 
 		# Get rid of all trailing non-letter symbols
