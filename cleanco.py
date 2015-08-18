@@ -5,6 +5,7 @@ import re
 
 from termdata import terms_by_country as country_dict, terms_by_type as type_dict
 
+
 class cleanco():
 
 	def __init__(self, business_name):
@@ -57,9 +58,7 @@ class cleanco():
 	def end_strip(self, a_set):
 
 		end_set = []
-
 		business_name = self.business_name
-
 		business_name = self.string_stripper(business_name)
 
 		for key, suffix in a_set:
@@ -94,18 +93,12 @@ class cleanco():
 				business_name = self.string_stripper(business_name)
 				break
 
-		business_name = self.string_stripper(business_name)
-
-		return business_name
+		return self.string_stripper(business_name)
 
 	def type(self):
-
 		self.type = self.end_strip(self.sorted_types)
-
 		return self.type
 
 	def country(self):
-
 		self.country = self.end_strip(self.sorted_countries)
-
 		return self.country
