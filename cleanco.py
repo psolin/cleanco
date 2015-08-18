@@ -31,7 +31,7 @@ class cleanco():
 		"as", "lda.", "tov", "pp"]
 		type_dict['Professional Corporation'] = ["p.c.", "vof", "snc"]
 		type_dict['No Liability'] = ["nl"]
-		type_dict['Sole Proprietorship'] = ["e.u.", "s.p.", "t:mi", "e.v.", "e.c.", "et", "obrt", "fie", "ij", "fop", "xt"]
+		type_dict['Sole Proprietorship'] = ["e.u.", "s.p.", "t:mi", "tmi", "e.v.", "e.c.", "et", "obrt", "fie", "ij", "fop", "xt"]
 		type_dict['Joint Stock / Unlimited'] = ["unltd", "ultd", "sal", "unlimited", "saog", "saoc", "aj", "yoaj", "oaj"]
 		type_dict['Joint Venture'] = ["esv", "gie", "kv.", "qk"]
 		type_dict['Non-Profit'] = ["vzw", "ses.", "gte."]
@@ -104,7 +104,7 @@ class cleanco():
 		country_dict['Switzerland'] = ["ab", "sa", "gmbh", "g.m.b.h.", "sarl", "sagl"]
 		country_dict['Turkey'] = ["koop."]
 		country_dict['Ukraine'] = ["dat", "fop", "kt", "pt", "tdv", "tov", "pp", "vat", "zat", "at"]
-		country_dict['United Kingdon'] = ["plc.", "plc", "cic", "cio", "l.l.p.", "llp", "l.p.", "lp", "ltd.", "ltd", "limited"]
+		country_dict['United Kingdom'] = ["plc.", "plc", "cic", "cio", "l.l.p.", "llp", "l.p.", "lp", "ltd.", "ltd", "limited"]
 		country_dict['United States of America'] = ["llc", "inc.", "corporation", "incorporated", "company", "limited", "corp.", "inc.",
 		"inc", "llp", "l.l.p.", "pllc", "and company", "& company", "inc", "inc.", "corp.", "corp", "ltd.", "ltd", "& co.", "& co", "co.",
 		 "co", "lp"]
