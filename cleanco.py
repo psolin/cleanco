@@ -12,9 +12,6 @@ class cleanco():
 
 		self.business_name = business_name
 
-		## Abbreviations ##
-		self.abbv  = {'intl.':'International', 'intl':'International', 'mfg':'Manufacturing', ' med ':' Medical ', ' ctr':'Center'}
-
 		# Sorted business types / abbreviation by length of business type
 		sorted_types = []
 		for business_type in type_dict:
@@ -73,13 +70,6 @@ class cleanco():
 	def clean_name(self):
 
 		business_name = self.business_name
-
-		# Abbrv. cleanup
-		for abbv in self.abbv:
-			if abbv in business_name.lower():
-				start = (business_name.lower()).find(abbv)
-				end = len(business_name)
-				business_name = business_name[0:start] + self.abbv[abbv] + business_name[end+1:len(business_name)]
 
 		# Get rid of country items once
 		for item in self.suffix_sort:
