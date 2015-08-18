@@ -1,6 +1,9 @@
-# Note that this script is geard towards identifying businesses in terms of the US/UK
+# Note that this script is geared towards identifying businesses in terms of the US/UK
+
 from collections import OrderedDict
 import re
+
+
 class cleanco():
 
 	def __init__(self, business_name):
