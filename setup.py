@@ -7,5 +7,5 @@ setup(name='cleanco',
       url='https://github.com/psolin/cleanco',
       author='Paul Solin',
       author_email='paul@paulsolin.com',
-      py_modules=['cleanco'],
+      py_modules=['cleanco', 'termdata'],
       )

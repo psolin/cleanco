@@ -3,115 +3,13 @@
 from collections import OrderedDict
 import re
 
+from termdata import terms_by_country as country_dict, terms_by_type as type_dict
 
 class cleanco():
 
 	def __init__(self, business_name):
 
 		self.business_name = business_name
-
-		# Business Types
-		type_dict = {}
-		type_dict['Professional Limited Liability Company'] = ["pllc", "p.l.l.c."]
-		type_dict['Limited Liability Limited Partnership'] = ["lllp", "l.l.l.p."]
-		type_dict['Limited Partnership'] = ["gmbh & co. kg", "gmbh & co. kg", "lp", "l.p.",
-		"s.c.s.", "s.c.p.a", "comm.v", "k.d.", "k.d.a.", "s. en c.", "e.e.", "s.a.s.", "s. en c.",
-		"c.v.", "s.k.a.", "sp.k.", "s.cra.", "ky", "scs", "kg", "kd", "k/s", "ee", "secs", "kda", "ks",
-		"kb", "kt"]
-		type_dict['Corporation'] = ["company", "incorporated", "corporation", "corp.", "corp", "inc", "& co.", "& co",
-		"inc.", "s.p.a.", "n.v.", "a.g.", "ag", "nuf", "s.a.", "s.f.", "oao", "co.", "co"]
-		type_dict['General Partnership'] = ["soc.col.", "stg", "d.n.o.", "ltda.", "v.o.s.", "kgaa", "o.e.",
-		"s.f.", "s.n.c.", "s.a.p.a.", "j.t.d.", "v.o.f.", "sp.j.", "og", "sd", "vos", " i/s", "ay", "snc", "oe",
-		"bt.", "s.s.", "mb", "ans", "da", "o.d.", "hb", "pt"]
-		type_dict['Limited Liability Company'] = ["pllc", "llc", "l.l.c.", "plc.", "plc", "hf.", "oyj", "a.e.", "nyrt.",
-		"p.l.c.", "sh.a.", "s.a.", "s.r.l.", "srl.", "aat", "3at", "d.d.", "akc. spol.", "a.s.", "s.r.o.", "s.m.b.a.",
-		"smba", "sarl", "nv", "sa", "aps", "a/s", "p/s", "sae", "sasu", "eurl", "ae", "cpt", "as", "ab", "asa", "ooo", "dat",
-		"vat", "zat", "mchj", "a.d."]
-		type_dict['Limited Liability Partnership'] = ["llp", "l.l.p.", "sp.p.", "s.c.a.", "s.c.s."]
-		type_dict['Limited'] = ["pty. ltd.", "pty ltd", "ltd", "l.t.d.", "bvba", "d.o.o.", "ltda", "gmbh", "g.m.b.h",
-		"kft.", "kht.", "zrt.", "ehf.", "s.a.r.l.", "d.o.o.e.l.", "s. de r.l.", "b.v.", "tapui", "sp. z.o.o.", "s.r.l.",
-		"s.l.", "s.l.n.e.", "ood", "oy", "rt.", "teo", "uab", "scs", "sprl", "limited", "bhd.", "sdn. bhd.", "sdn bhd",
-		"as", "lda.", "tov", "pp"]
-		type_dict['Professional Corporation'] = ["p.c.", "vof", "snc"]
-		type_dict['No Liability'] = ["nl"]
-		type_dict['Sole Proprietorship'] = ["e.u.", "s.p.", "t:mi", "tmi", "e.v.", "e.c.", "et", "obrt", "fie", "ij", "fop", "xt"]
-		type_dict['Joint Stock / Unlimited'] = ["unltd", "ultd", "sal", "unlimited", "saog", "saoc", "aj", "yoaj", "oaj"]
-		type_dict['Joint Venture'] = ["esv", "gie", "kv.", "qk"]
-		type_dict['Non-Profit'] = ["vzw", "ses.", "gte."]
-		type_dict['Mutual Fund'] = ["sicav"]
-		type_dict['Private Company'] = ["private", "pte", "xk"]
-
-		# Countries that can be identified due to specific business types in the name -- thanks Wikipedia!
-		country_dict = {}
-		country_dict['Albania'] = ["sh.a.", "sh.p.k."]
-		country_dict['Argentina'] = ["s.a.", "s.r.l.", "s.c.p.a", "scpa", "s.c.e i.", "s.e.", "s.g.r", "soc.col."]
-		country_dict['Australia'] = ["nl", "pty. ltd.", "pty ltd"]
-		country_dict['Austria'] = ["e.u.", "stg", "gesbr", "a.g.", "ag", "og", "kg"]
-		country_dict['Belarus'] = ["aat", "3at"]
-		country_dict['Belgium'] = ["esv", "vzw", "vof", "snc", "comm.v", "scs", "bvba", "sprl", "cbva", "cvoa", "sca", "sep", "gie"]
-		country_dict['Bosnia / Herzegovina'] = ["d.d.", "a.d.", "d.n.o.", "d.o.o.", "k.v.", "s.p."]
-		country_dict['Bulgaria'] = ["ad", "adsitz", "ead", "et", "kd", "kda", "sd"]
-		country_dict['Brazil'] = ["ltda", "s.a.", "pllc", "ad", "adsitz", "ead", "et", "kd", "kda", "sd"]
-		country_dict['Cambodia'] = ["gp", "sm pte ltd.", "pte ltd.", "plc ltd.", "peec", "sp"]
-		country_dict['Canada'] = ["gp", "lp", "sp"]
-		country_dict['Chile'] = ["eirl", "s.a.", "sgr", "s.g.r.", "ltda", "s.p.a.", "sa", "s. en c.", "ltda."]
-		country_dict['Columbia'] = ["s.a.", "e.u.", "s.a.s.", "suc. de descendants", "sca"]
-		country_dict['Croatia'] = ["d.d.", "d.d.o.", "obrt"]
-		country_dict['Czech Republic'] = ["a.s.", "akc. spol.", "s.r.o.", "v.o.s.", "k.s.", "sro", "vos"]
-		country_dict['Denmark'] = ["i/s", "a/s", "k/s", "p/s", "amba", "a.m.b.a.", "fmba", "f.m.b.a.", "smba", "s.m.b.a.", "g/s"]
-		country_dict['Dominican Republic'] = ["c. por a.", "cxa", "s.a.", "s.a.s.", "srl.", "eirl.", "sa", "sas"]
-		country_dict['Ecuador'] = ["s.a.", "c.a.", "sa", "ep"]
-		country_dict['Egypt'] = ["sae"]
-		country_dict['Estonia'] = ["fie"]
-		country_dict['Finland'] = ["t:mi", "tmi", "as oy", "as.oy", "ay", "ky", "oy", "oyj", "ok"]
-		country_dict['France'] = ["sicav", "sarl", "sogepa", "ei", "eurl", "sasu", "fcp", "gie", "sep", "snc", "scs", "sca",
-		"scop", "sem", "sas"]
-		country_dict['Germany'] = ["gmbh & co. kg", "gmbh & co. kg", "e.g.", "e.v.", "gbr", "ohg", "partg", "kgaa", "gmbh", "g.m.b.h.", "ag"]
-		country_dict['Greece'] = ["a.e.", "ae", "e.e.", "ee", "epe", "e.p.e.", "mepe", "m.e.p.e.", "o.e.", "oe", "ovee", "o.v.e.e."]
-		country_dict['Guatemala'] = ["s.a.", "sa"]
-		country_dict['Haiti'] = ["sa"]
-		country_dict['Hong Kong'] = ["ltd", "unltd", "ultd", "limited"]
-		country_dict['Hungary'] = ["e.v.", "e.c.", "bt.", "kft.", "kht.", "kkt.", "k.v.", "zrt.", "nyrt", "ev", "ec", "rt."]
-		country_dict['Iceland'] = ["ehf.", "hf.", "ohf.", "s.f.", "ses."]
-		country_dict['India'] = ["pvt. ltd.", "ltd.", "psu", "pse"]
-		country_dict['Indonesia'] = ["ud", "fa", "pt"]
-		country_dict['Ireland'] = ["cpt", "teo"]
-		country_dict['Israel'] = ["b.m.", "bm", "ltd", "limited"]
-		country_dict['Italy'] = ["s.n.c.", "s.a.s.", "s.p.a.", "s.a.p.a.", "s.r.l.", "s.c.r.l.", "s.s."]
-		country_dict['Latvia'] = ["as", "sia", "ik", "ps", "ks"]
-		country_dict['Lebanon'] = ["sal"]
-		country_dict['Lithuania'] = ["uab", "ab", "ij", "mb"]
-		country_dict['Luxemborg'] = ["s.a.", "s.a.r.l.", "secs"]
-		country_dict['Macedonia'] = ["d.o.o.", "d.o.o.e.l", "k.d.a.", "j.t.d.", "a.d.", "k.d."]
-		country_dict['Malaysia'] = ["bhd.", "sdn. bhd."]
-		country_dict['Mexico'] = ["s.a.", "s. de. r.l.", "s. en c.", "s.a.b.", "s.a.p.i."]
-		country_dict['Mongolia'] = ["xk", "xxk"]
-		country_dict['Netherlands'] = ["v.o.f.", "c.v.", "b.v.", "n.v."]
-		country_dict['New Zealand'] = ["tapui", "ltd", "limited"]
-		country_dict['Nigeria'] = ["gte.", "plc", "ltd.", "ultd."]
-		country_dict['Norway'] = ["asa", "as", "ans", "ba", "bl", "da", "etat", "fkf", "hf", "iks", "kf", "ks", "nuf", "rhf", "sf"]
-		country_dict['Oman'] = ["saog", "saoc"]
-		country_dict['Pakistan'] = ["ltd.", "pvt. ltd.", "ltd", "limited"]
-		country_dict['Peru'] = ["sa", "s.a.", "s.a.a."]
-		country_dict['Philippines'] = ["coop.", "corp.", "corp", "ent.", "inc.", "inc", "llc", "l.l.c.", "ltd."]
-		country_dict['Poland'] = ["p.p.", "s.k.a.", "sp.j.", "sp.k.", "sp.p.", "sp. z.o.o.", "s.c.", "s.a."]
-		country_dict['Portugal'] = ["lda.", "crl", "s.a.", "s.f.", "sgps"]
-		country_dict['Romania'] = ["s.c.a.", "s.c.s.", "s.n.c.", "s.r.l.", "o.n.g.", "s.a."]
-		country_dict['Russia'] = ["ooo", "oao", "zao", "3ao"]
-		country_dict['Serbia'] = ["d.o.o.", "a.d.", "k.d.", "o.d."]
-		country_dict['Singapore'] = ["bhd", "pte ltd", "sdn bhd", "llp", "l.l.p.", "ltd.", "pte"]
-		country_dict['Slovokia'] = ["a.s.", "s.r.o.", "k.s.", "v.o.s."]
-		country_dict['Slovenia'] = ["d.d.", "d.o.o.", "d.n.o.", "k.d.", "s.p."]
-		country_dict['Spain'] = ["s.a.", "s.a.d.", "s.l.", "s.l.l.", "s.l.n.e.", "s.c.", "s.cra", "s.coop", "sal", "sccl"]
-		country_dict['Sweden'] = ["ab", "hb", "kb"]
-		country_dict['Switzerland'] = ["ab", "sa", "gmbh", "g.m.b.h.", "sarl", "sagl"]
-		country_dict['Turkey'] = ["koop."]
-		country_dict['Ukraine'] = ["dat", "fop", "kt", "pt", "tdv", "tov", "pp", "vat", "zat", "at"]
-		country_dict['United Kingdom'] = ["plc.", "plc", "cic", "cio", "l.l.p.", "llp", "l.p.", "lp", "ltd.", "ltd", "limited"]
-		country_dict['United States of America'] = ["llc", "inc.", "corporation", "incorporated", "company", "limited", "corp.", "inc.",
-		"inc", "llp", "l.l.p.", "pllc", "and company", "& company", "inc", "inc.", "corp.", "corp", "ltd.", "ltd", "& co.", "& co", "co.",
-		 "co", "lp"]
-		country_dict['Uzbekistan'] = ["mchj", "qmj", "aj", "oaj", "yoaj", "xk", "xt", "ok", "uk", "qk"]
 
 		## Abbreviations ##
 		self.abbv  = {'intl.':'International', 'intl':'International', 'mfg':'Manufacturing', ' med ':' Medical ', ' ctr':'Center'}
