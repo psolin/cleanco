@@ -10,7 +10,9 @@ class cleanco():
 
 	def __init__(self, business_name):
 
-		self.business_name = business_name
+		# always do non-visible cleanup, but store the original just in case
+		self.business_name = ' '.join(business_name.split())
+		self._original = business_name
 
 		# Sorted business types / abbreviation by length of business type
 		sorted_types = []
@@ -66,21 +68,39 @@ class cleanco():
 		else:
 			return None
 
-	# A clean version of the business name
-	def clean_name(self):
 
-		business_name = self.business_name
+	def clean_name(self, suffix=True, prefix=False, middle=False, multi=False):
+		"return cleared version of the business name"
 
-		# Get rid of country items once
+		name = self.business_name
+
+		# return name without suffixed/prefixed/middle type term(s)
+
 		for item in self.suffix_sort:
-			if ((business_name.lower()).endswith(" " + item)):
-				start = (business_name.lower()).find(item)
-				end = len(item)
-				business_name = business_name[0:-end]
-				business_name = self.string_stripper(business_name)
-				break
+			if suffix:
+				if name.lower().endswith(" " + item):
+					start = name.lower().find(item)
+					end = len(item)
+					name = name[0:-end-1]
+					name = self.string_stripper(name)
+					if multi==False:
+						break
+			if prefix:
+				if name.lower().startswith(item+' '):
+					name = name[len(item)+1:]
+					if multi==False:
+						break
+			if middle:
+				term = ' ' + item + ' '
+				if term in name.lower():
+					start = name.lower().find(term)
+					end = start + len(term)
+					name = name[:start] + " " + name[end:]
+					if multi==False:
+						break
 
-		return self.string_stripper(business_name)
+		return self.string_stripper(name)
+
 
 	def type(self):
 		self.type = self.end_strip(self.sorted_types)
