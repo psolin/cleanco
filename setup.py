@@ -8,7 +8,7 @@ setup(name='cleanco',
       classifiers = [
          "Topic :: Office/Business",
          "Development Status :: 4 - Beta",
-         "Intended Audience :: Developers"
+         "Intended Audience :: Developers",
          "License :: OSI Approved :: MIT License",
       ],
       url='https://github.com/psolin/cleanco',
