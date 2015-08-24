@@ -41,4 +41,6 @@ You can now get the company types:
 You better believe it.  Please let me know or fork this project.  I'm sure some of the company suffixes are way incorrect and I'm missing a lot more information.
 
 ## Special thanks to:
-Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity), where I spent hours of research.
+
+- Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity), where I spent hours of research.
+- Contributors: Petri Savolainen <petri.savolainen@koodaamo.fi>
