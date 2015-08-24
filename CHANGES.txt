@@ -1,0 +1,15 @@
+Changelog
+**********
+
+1.1 (24.8. 2015)
+-----------------
+
+- Support prefixed and in-middle terms
+- Support multiple terms per name
+- Cleanup & refactoring
+- First PyPI release
+
+1.0 (Mar 20, 2014)
+-------------------
+
+- GitHub release

@@ -3,7 +3,7 @@
 from distutils.core import setup
 setup(name='cleanco',
       description='Python library to process company names',
-      version='1.0',
+      version='1.1',
       license="MIT",
       classifiers = [
          "Topic :: Office/Business",
