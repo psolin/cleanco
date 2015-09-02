@@ -1,7 +1,18 @@
-# cleanco - 1.1
+# cleanco - clean organization names
 
 ## What is it / what does it do?
-This is a Python module that processes company names, in terms of US/UK business entity types.
+
+This is a Python package that processes company names, providing cleaned versions of the
+names by stripping away terms indicating organization type (such as "Ltd." or "Corp").
+
+Using a database of organization type terms, It also provides an utility to deduce the
+type of organization, in terms of US/UK business entity types (ie. "limited liability
+company" or "non-profit").
+
+Finally, the system uses the term information to suggest countries the organization could
+be established in. For example, the term "Oy" in company name suggests it is established
+in Finland, whereas "Ltd" in company name could mean UK, US or a number of other
+countries.
 
 ## How do I install it?
 Download it from this site and unzip the directory.

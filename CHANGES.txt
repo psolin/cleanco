@@ -1,6 +1,13 @@
 Changelog
 **********
 
+1.2 (2.9. 2015)
+----------------
+
+- Major speedup by moving logic to class
+  constructor
+- Improved readme
+
 1.1 (24.8. 2015)
 -----------------
 

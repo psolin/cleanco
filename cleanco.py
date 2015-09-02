@@ -8,12 +8,9 @@ from termdata import terms_by_country as country_dict, terms_by_type as type_dic
 
 class cleanco():
 
-	def __init__(self, business_name):
-
-		# always do non-visible cleanup, but store the original just in case
-		self.business_name = ' '.join(business_name.split())
-		self._original = business_name
-
+   @classmethod
+   def __new__(klass, *args, **kwargs):
+      ""
 		# Sorted business types / abbreviation by length of business type
 		sorted_types = []
 		for business_type in type_dict:
@@ -21,7 +18,7 @@ class cleanco():
 				temp_tuple = [business_type, item]
 				sorted_types.append(temp_tuple)
 
-		self.sorted_types = sorted(sorted_types, key=lambda part: len(part[1]), reverse=True)
+		klass.sorted_types = sorted(sorted_types, key=lambda part: len(part[1]), reverse=True)
 
 		# Sorted business countries / type abbrviations by length of business type abbreviations
 		sorted_countries = []
@@ -30,7 +27,7 @@ class cleanco():
 				temp_tuple = [country, item]
 				sorted_countries.append(temp_tuple)
 
-		self.sorted_countries = sorted(sorted_countries, key=lambda part: len(part[1]), reverse=True)
+		klass.sorted_countries = sorted(sorted_countries, key=lambda part: len(part[1]), reverse=True)
 
 		# All of the suffixes sorted by length
 		all_sorted = sorted_types + sorted_countries
@@ -38,7 +35,13 @@ class cleanco():
 		for item in all_sorted:
 			suffix_sort.append(item[1])
 
-		self.suffix_sort = sorted(suffix_sort, key=lambda part: len(part), reverse=True)
+		klass.suffix_sort = sorted(suffix_sort, key=lambda part: len(part), reverse=True)
+
+
+	def __init__(self, business_name):
+		# always do non-visible cleanup, but store the original just in case
+		self.business_name = ' '.join(business_name.split())
+		self._original = business_name
 
 	def string_stripper(self, business_name):
 
