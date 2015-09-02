@@ -6,37 +6,31 @@ import re
 from termdata import terms_by_country as country_dict, terms_by_type as type_dict
 
 
-class cleanco():
+# Sorted business types / abbreviation by length of business type
+sorted_types = []
+for business_type in type_dict:
+	for item in type_dict[business_type]:
+		temp_tuple = [business_type, item]
+		sorted_types.append(temp_tuple)
+sorted_types = sorted(sorted_types, key=lambda part: len(part[1]), reverse=True)
 
-   @classmethod
-   def __new__(klass, *args, **kwargs):
-      ""
-		# Sorted business types / abbreviation by length of business type
-		sorted_types = []
-		for business_type in type_dict:
-			for item in type_dict[business_type]:
-				temp_tuple = [business_type, item]
-				sorted_types.append(temp_tuple)
+# Sorted business countries / type abbrviations by length of business type abbreviations
+sorted_countries = []
+for country in country_dict:
+	for item in country_dict[country]:
+		temp_tuple = [country, item]
+		sorted_countries.append(temp_tuple)
+sorted_countries = sorted(sorted_countries, key=lambda part: len(part[1]), reverse=True)
 
-		klass.sorted_types = sorted(sorted_types, key=lambda part: len(part[1]), reverse=True)
+# All of the suffixes sorted by length
+all_sorted = sorted_types + sorted_countries
+suffix_sort = []
+for item in all_sorted:
+	suffix_sort.append(item[1])
+suffix_sort = sorted(suffix_sort, key=lambda part: len(part), reverse=True)
 
-		# Sorted business countries / type abbrviations by length of business type abbreviations
-		sorted_countries = []
-		for country in country_dict:
-			for item in country_dict[country]:
-				temp_tuple = [country, item]
-				sorted_countries.append(temp_tuple)
 
-		klass.sorted_countries = sorted(sorted_countries, key=lambda part: len(part[1]), reverse=True)
-
-		# All of the suffixes sorted by length
-		all_sorted = sorted_types + sorted_countries
-		suffix_sort = []
-		for item in all_sorted:
-			suffix_sort.append(item[1])
-
-		klass.suffix_sort = sorted(suffix_sort, key=lambda part: len(part), reverse=True)
-
+class cleanco(object):
 
 	def __init__(self, business_name):
 		# always do non-visible cleanup, but store the original just in case
@@ -79,7 +73,7 @@ class cleanco():
 
 		# return name without suffixed/prefixed/middle type term(s)
 
-		for item in self.suffix_sort:
+		for item in suffix_sort:
 			if suffix:
 				if name.lower().endswith(" " + item):
 					start = name.lower().find(item)
@@ -106,9 +100,9 @@ class cleanco():
 
 
 	def type(self):
-		self.type = self.end_strip(self.sorted_types)
+		self.type = self.end_strip(sorted_types)
 		return self.type
 
 	def country(self):
-		self.country = self.end_strip(self.sorted_countries)
+		self.country = self.end_strip(sorted_countries)
 		return self.country

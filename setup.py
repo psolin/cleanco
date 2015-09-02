@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 from distutils.core import setup
+
 setup(name='cleanco',
       description='Python library to process company names',
-      version='1.2',
+      version='1.2.1',
       license="MIT",
       classifiers = [
          "Topic :: Office/Business",

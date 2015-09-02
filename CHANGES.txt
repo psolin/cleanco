@@ -1,6 +1,12 @@
 Changelog
 **********
 
+1.2.1 (2.9. 2015)
+------------------
+
+- Fix stupid indentation bug (blush)
+- Fix broken 1.2 speedup logic; move to module level
+
 1.2 (2.9. 2015)
 ----------------
 
