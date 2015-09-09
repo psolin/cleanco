@@ -40,8 +40,8 @@ def test_multi_type_cleanups():
 # Tests that demonstrate organization name is kept intact
 
 preserving_cleanup_tests = {
-   "name with comma": ("Hello, World, ltd.", "Hello, World"),
-   "name with dot": ("Hello. World, Oy", "Hello. World")
+   "name with comma": (u"Hello, World, ltd.", u"Hello, World"),
+   "name with dot": (u"Hello. World, Oy", u"Hello. World")
 }
 
 def test_preserving_cleanups():
@@ -51,14 +51,16 @@ def test_preserving_cleanups():
 
 # Test umlauts
 
-preserving_cleanup_tests = {
+
+unicode_umlaut_tests = {
    "name with umlaut in end": (u"Säätämö Oy", u"Säätämö"),
    "name with umlauts & comma": (u"Säätämö, Oy", u"Säätämö"),
    "name with no ending umlaut": (u"Säätämo Oy", u"Säätämo"),
-   "name with beginning umlaut": (u"Äätämo Oy", u"Äätämo")
+   "name with beginning umlaut": (u"Äätämo Oy", u"Äätämo"),
+   "name with just umlauts": (u"Äätämö", u"Äätämö")
 }
 
-def test_with_umlauted_name():
+def test_with_unicode_umlauted_name():
    errmsg = "preserving cleanup of %s failed"
-   for testname, (variation, expected) in preserving_cleanup_tests.items():
+   for testname, (variation, expected) in unicode_umlaut_tests.items():
       assert cleanco(variation).clean_name() == expected, errmsg % testname

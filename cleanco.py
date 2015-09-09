@@ -43,7 +43,7 @@ class cleanco(object):
 		business_name = " ".join(business_name.split())
 
 		# Get rid of all trailing non-letter symbols
-		while re.search(r'\W+$', business_name) is not None:
+		while re.search(r'\W+$', business_name, flags=re.UNICODE) is not None:
 			business_name = business_name[:-1]
 
 		return business_name
