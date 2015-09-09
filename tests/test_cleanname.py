@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from cleanco import cleanco
 
 
@@ -43,6 +45,20 @@ preserving_cleanup_tests = {
 }
 
 def test_preserving_cleanups():
+   errmsg = "preserving cleanup of %s failed"
+   for testname, (variation, expected) in preserving_cleanup_tests.items():
+      assert cleanco(variation).clean_name() == expected, errmsg % testname
+
+# Test umlauts
+
+preserving_cleanup_tests = {
+   "name with umlaut in end": (u"Säätämö Oy", u"Säätämö"),
+   "name with umlauts & comma": (u"Säätämö, Oy", u"Säätämö"),
+   "name with no ending umlaut": (u"Säätämo Oy", u"Säätämo"),
+   "name with beginning umlaut": (u"Äätämo Oy", u"Äätämo")
+}
+
+def test_with_umlauted_name():
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in preserving_cleanup_tests.items():
       assert cleanco(variation).clean_name() == expected, errmsg % testname
