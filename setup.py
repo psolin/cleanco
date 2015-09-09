@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+import setuptools
+
+from setuptools import setup
 
 setup(name='cleanco',
       description='Python library to process company names',
