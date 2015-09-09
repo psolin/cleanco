@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(name='cleanco',
       description='Python library to process company names',
-      version='1.2.1',
+      version='1.3',
       license="MIT",
       classifiers = [
          "Topic :: Office/Business",

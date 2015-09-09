@@ -1,6 +1,12 @@
 Changelog
 **********
 
+1.3 (9.9. 2015)
+----------------
+
+- Switch to setuptools
+- Support unicode input
+
 1.2.1 (2.9. 2015)
 ------------------
 
