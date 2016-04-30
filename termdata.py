@@ -2,7 +2,7 @@
 terms_by_type = {
    'Corporation': ['company', 'incorporated', 'corporation', 'corp.', 'corp', 'inc',
       '& co.', '& co', 'inc.', 's.p.a.', 'n.v.', 'a.g.', 'ag', 'nuf', 's.a.', 's.f.',
-      'oao', 'co.', 'co'
+      'oao', 'co.', 'co', 'se'
    ],
    'General Partnership': ['soc.col.', 'stg', 'd.n.o.', 'ltda.', 'v.o.s.', 'kgaa', 'o.e.',
       's.f.', 's.n.c.', 's.a.p.a.', 'j.t.d.', 'v.o.f.', 'sp.j.', 'og', 'sd', 'vos',
@@ -22,7 +22,7 @@ terms_by_type = {
       'a.e.', 'nyrt.', 'p.l.c.', 'sh.a.', 's.a.', 's.r.l.', 'srl.', 'aat', '3at', 'd.d.',
       'akc. spol.', 'a.s.', 's.r.o.', 's.m.b.a.', 'smba', 'sarl', 'nv', 'sa', 'aps',
       'a/s', 'p/s', 'sae', 'sasu', 'eurl', 'ae', 'cpt', 'as', 'ab', 'asa', 'ooo', 'dat',
-      'vat', 'zat', 'mchj', 'a.d.'
+      'vat', 'zat', 'mchj', 'a.d.', 'spe'
    ],
    'Limited Liability Limited Partnership': ['lllp', 'l.l.l.p.'],
    'Limited Liability Partnership': ['llp', 'l.l.p.', 'sp.p.', 's.c.a.', 's.c.s.'],
@@ -73,6 +73,7 @@ terms_by_country = {
    'Ecuador': ['s.a.', 'c.a.', 'sa', 'ep'],
    'Egypt': ['sae'],
    'Estonia': ['fie'],
+   'European Union' : ['se', 'spe'],
    'Finland': ['t:mi', 'tmi', 'as oy', 'as.oy', 'ay', 'ky', 'oy', 'oyj', 'ok'],
    'France': ['sicav', 'sarl', 'sogepa', 'ei', 'eurl', 'sasu', 'fcp', 'gie', 'sep', 'snc',
       'scs', 'sca', 'scop', 'sem', 'sas'
