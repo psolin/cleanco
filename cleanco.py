@@ -177,6 +177,9 @@ class cleanco():
 
 		business_name = self.business_name
 
+		# Run the business name through the string_stripper again
+		business_name = self.string_stripper(business_name)
+
 		# Abbrv. cleanup
 		for abbv in self.abbv:
 			if abbv in business_name.lower():
@@ -192,11 +195,6 @@ class cleanco():
 				business_name = business_name[0:-end]
 				business_name = self.string_stripper(business_name)
 				break
-
-		# Check the prefix of nordic business names
-		if kws['nordic'] == True:
-			
-
 
 		business_name = self.string_stripper(business_name)
 
