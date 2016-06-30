@@ -1,6 +1,6 @@
 from cleanco import cleanco
 
-business_name = "Hello World llc"
+business_name = "Hello World, llc."
 print("Inputted Business Name: %s" % business_name)
 x = cleanco(business_name)
 print("Clean Name: %s" % x.clean_name())

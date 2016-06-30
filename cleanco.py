@@ -1,8 +1,5 @@
 # Note that this script is geared towards identifying businesses in terms of the US/UK
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 from collections import OrderedDict
 import re
 
@@ -68,37 +65,14 @@ class cleanco(object):
 		else:
 			return None
 
-<<<<<<< HEAD
-	# A clean version of the business name
-	def clean_name(self, **kws):
-=======
->>>>>>> origin/master
 
 	def clean_name(self, suffix=True, prefix=False, middle=False, multi=False):
 		"return cleared version of the business name"
 
-<<<<<<< HEAD
-		# Run the business name through the string_stripper again
-		business_name = self.string_stripper(business_name)
-
-		# Abbrv. cleanup
-		for abbv in self.abbv:
-			if abbv in business_name.lower():
-				start = (business_name.lower()).find(abbv)
-				end = len(business_name)
-				business_name = business_name[0:start] + self.abbv[abbv] + business_name[end+1:len(business_name)]
-
-		# Get rid of country items once
-		for item in self.suffix_sort:
-			if ((business_name.lower()).endswith(" " + item)):
-				start = (business_name.lower()).find(item)
-				end = len(item)
-				business_name = business_name[0:-end]
-				business_name = self.string_stripper(business_name)
-				break
-=======
 		name = self.business_name
->>>>>>> origin/master
+
+		# Run it through the string_stripper once more
+		name = self.string_stripper(name)
 
 		# return name without suffixed/prefixed/middle type term(s)
 
