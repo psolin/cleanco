@@ -14,7 +14,7 @@ for business_type in type_dict:
 		sorted_types.append(temp_tuple)
 sorted_types = sorted(sorted_types, key=lambda part: len(part[1]), reverse=True)
 
-# Sorted business countries / type abbrviations by length of business type abbreviations
+# Sorted business countries / type abbreviations by length of business type abbreviations
 sorted_countries = []
 for country in country_dict:
 	for item in country_dict[country]:
