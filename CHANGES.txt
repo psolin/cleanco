@@ -1,0 +1,34 @@
+Changelog
+**********
+
+1.3 (9.9. 2015)
+----------------
+
+- Switch to setuptools
+- Support unicode input
+
+1.2.1 (2.9. 2015)
+------------------
+
+- Fix stupid indentation bug (blush)
+- Fix broken 1.2 speedup logic; move to module level
+
+1.2 (2.9. 2015)
+----------------
+
+- Major speedup by moving logic to class
+  constructor
+- Improved readme
+
+1.1 (24.8. 2015)
+-----------------
+
+- Support prefixed and in-middle terms
+- Support multiple terms per name
+- Cleanup & refactoring
+- First PyPI release
+
+1.0 (Mar 20, 2014)
+-------------------
+
+- GitHub release

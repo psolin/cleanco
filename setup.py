@@ -1,11 +1,21 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+import setuptools
+
+from setuptools import setup
+
 setup(name='cleanco',
       description='Python library to process company names',
-      version='1.0',
+      version='1.3',
+      license="MIT",
+      classifiers = [
+         "Topic :: Office/Business",
+         "Development Status :: 4 - Beta",
+         "Intended Audience :: Developers",
+         "License :: OSI Approved :: MIT License",
+      ],
       url='https://github.com/psolin/cleanco',
       author='Paul Solin',
       author_email='paul@paulsolin.com',
-      py_modules=['cleanco'],
+      py_modules=['cleanco', 'termdata'],
       )
