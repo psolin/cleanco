@@ -173,7 +173,7 @@ class cleanco():
 			return None
 
 	# A clean version of the business name
-	def clean_name(self):
+	def clean_name(self, **kws):
 
 		business_name = self.business_name
 
@@ -192,6 +192,11 @@ class cleanco():
 				business_name = business_name[0:-end]
 				business_name = self.string_stripper(business_name)
 				break
+
+		# Check the prefix of nordic business names
+		if kws['nordic'] == True:
+			
+
 
 		business_name = self.string_stripper(business_name)
 
