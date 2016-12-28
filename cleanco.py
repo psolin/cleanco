@@ -42,9 +42,10 @@ class cleanco(object):
 		# Get rid of extra prefix-, suffix- & in-between spaces
 		business_name = " ".join(business_name.split())
 
-		# Get rid of all trailing non-letter symbols
-		while re.search(r'\W+$', business_name, flags=re.UNICODE) is not None:
-			business_name = business_name[:-1]
+		# Get rid of all trailing non-letter symbols except '.'
+		match = re.search(r'[^\.\w]+$', business_name, flags=re.UNICODE)
+		if match is not None:
+			business_name = business_name[:match.span()[0]]
 
 		return business_name
 
