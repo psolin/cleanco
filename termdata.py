@@ -1,12 +1,10 @@
-#-*-coding:UTF-8-*-
-
 terms_by_type = {
    'Corporation': ['company', 'incorporated', 'corporation', 'corp.', 'corp', 'inc',
       '& co.', '& co', 'inc.', 's.p.a.', 'n.v.', 'a.g.', 'ag', 'nuf', 's.a.', 's.f.',
       'oao', 'co.', 'co'
    ],
    'General Partnership': ['soc.col.', 'stg', 'd.n.o.', 'ltda.', 'v.o.s.', 'a spol.',
-      'veř. obch. spol.', 'kgaa', 'o.e.', 's.f.', 's.n.c.', 's.a.p.a.', 'j.t.d.',
+      u've\xc5\x99. obch. spol.', 'kgaa', 'o.e.', 's.f.', 's.n.c.', 's.a.p.a.', 'j.t.d.',
       'v.o.f.', 'sp.j.', 'og', 'sd', ' i/s', 'ay', 'snc', 'oe', 'bt.', 's.s.', 'mb',
       'ans', 'da', 'o.d.', 'hb', 'pt'
    ],
@@ -65,7 +63,7 @@ terms_by_country = {
    ],
    'Columbia': ['s.a.', 'e.u.', 's.a.s.', 'suc. de descendants', 'sca'],
    'Croatia': ['d.d.', 'd.d.o.', 'obrt'],
-   'Czech Republic': ['a.s.', 'akc. spol.', 's.r.o.', 'spol. s r.o.', 'v.o.s.', 'veř. obch. spol.', 'a spol.', 'k.s.', 'kom. spol.', 'kom. spol.'],
+   'Czech Republic': ['a.s.', 'akc. spol.', 's.r.o.', 'spol. s r.o.', 'v.o.s.', u've\xc5\x99. obch. spol.', 'a spol.', 'k.s.', 'kom. spol.', 'kom. spol.'],
    'Denmark': ['i/s', 'a/s', 'k/s', 'p/s', 'amba', 'a.m.b.a.', 'fmba', 'f.m.b.a.', 'smba',
       's.m.b.a.', 'g/s'
    ],
