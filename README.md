@@ -15,7 +15,7 @@ in Finland, whereas "Ltd" in company name could mean UK, US or a number of other
 countries.
 
 ## How do I install it?
-Download it from this site and unzip the directory.
+Just use 'pip install cleanco' if you have pip installed (as most systems do). Or download the zip distribution from this site, unzip it and then:
 
 * Mac: `cd` into it, and enter `sudo python setup.py install` along with your system password.
 * Windows: Same thing but without `sudo`.
