@@ -15,7 +15,7 @@ in Finland, whereas "Ltd" in company name could mean UK, US or a number of other
 countries.
 
 ## How do I install it?
-Download it from this site and unzip the directory.
+Just use 'pip install cleanco' if you have pip installed (as most systems do). Or download the zip distribution from this site, unzip it and then:
 
 * Mac: `cd` into it, and enter `sudo python setup.py install` along with your system password.
 * Windows: Same thing but without `sudo`.
@@ -49,7 +49,9 @@ You can now get the company types:
     'Some Big Pharma'
 
 ## Are there bugs?
-You better believe it.  Please let me know or fork this project.  I'm sure some of the company suffixes are way incorrect and I'm missing a lot more information.
+See the issue tracker. If you find a bug or have enhancement suggestion or question, please file an issue and provide a PR if you can. For example, some of the company suffixes may be incorrect or there may be suffixes missing.
+
+To run tests, simply install the package and run `python setup.py test`. To run tests on multiple Python versions, install `tox` and run it (see the provided tox.ini).
 
 ## Special thanks to:
 

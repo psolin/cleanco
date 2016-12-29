@@ -13,9 +13,13 @@ setup(name='cleanco',
          "Development Status :: 4 - Beta",
          "Intended Audience :: Developers",
          "License :: OSI Approved :: MIT License",
+         "Programming Language :: Python :: 2.7",
+         "Programming Language :: Python :: 3.5"
       ],
       url='https://github.com/psolin/cleanco',
       author='Paul Solin',
       author_email='paul@paulsolin.com',
       py_modules=['cleanco', 'termdata'],
+      setup_requires=['pytest-runner'],
+      tests_require=['pytest', 'tox'],
       )
