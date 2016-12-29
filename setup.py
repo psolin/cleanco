@@ -18,4 +18,6 @@ setup(name='cleanco',
       author='Paul Solin',
       author_email='paul@paulsolin.com',
       py_modules=['cleanco', 'termdata'],
+      setup_requires=['pytest-runner'],
+      tests_require=['pytest', 'tox'],
       )
