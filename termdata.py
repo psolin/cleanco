@@ -1,15 +1,15 @@
-
 terms_by_type = {
    'Corporation': ['company', 'incorporated', 'corporation', 'corp.', 'corp', 'inc',
       '& co.', '& co', 'inc.', 's.p.a.', 'n.v.', 'a.g.', 'ag', 'nuf', 's.a.', 's.f.',
       'oao', 'co.', 'co'
    ],
-   'General Partnership': ['soc.col.', 'stg', 'd.n.o.', 'ltda.', 'v.o.s.', 'kgaa', 'o.e.',
-      's.f.', 's.n.c.', 's.a.p.a.', 'j.t.d.', 'v.o.f.', 'sp.j.', 'og', 'sd', 'vos',
-      ' i/s', 'ay', 'snc', 'oe', 'bt.', 's.s.', 'mb', 'ans', 'da', 'o.d.', 'hb', 'pt'
+   'General Partnership': ['soc.col.', 'stg', 'd.n.o.', 'ltda.', 'v.o.s.', 'a spol.',
+      u've\xc5\x99. obch. spol.', 'kgaa', 'o.e.', 's.f.', 's.n.c.', 's.a.p.a.', 'j.t.d.',
+      'v.o.f.', 'sp.j.', 'og', 'sd', ' i/s', 'ay', 'snc', 'oe', 'bt.', 's.s.', 'mb',
+      'ans', 'da', 'o.d.', 'hb', 'pt'
    ],
    'Joint Stock / Unlimited': ['unltd', 'ultd', 'sal', 'unlimited', 'saog', 'saoc', 'aj',
-      'yoaj', 'oaj'
+      'yoaj', 'oaj', 'akc. spol.', 'a.s.'
    ],
    'Joint Venture': ['esv', 'gie', 'kv.', 'qk'],
    'Limited': ['pty. ltd.', 'pty ltd', 'ltd', 'l.t.d.', 'bvba', 'd.o.o.', 'ltda', 'gmbh',
@@ -20,7 +20,7 @@ terms_by_type = {
    ],
    'Limited Liability Company': ['pllc', 'llc', 'l.l.c.', 'plc.', 'plc', 'hf.', 'oyj',
       'a.e.', 'nyrt.', 'p.l.c.', 'sh.a.', 's.a.', 's.r.l.', 'srl.', 'aat', '3at', 'd.d.',
-      'akc. spol.', 'a.s.', 's.r.o.', 's.m.b.a.', 'smba', 'sarl', 'nv', 'sa', 'aps',
+      's.r.o.', 'spol. s r.o.', 's.m.b.a.', 'smba', 'sarl', 'nv', 'sa', 'aps',
       'a/s', 'p/s', 'sae', 'sasu', 'eurl', 'ae', 'cpt', 'as', 'ab', 'asa', 'ooo', 'dat',
       'vat', 'zat', 'mchj', 'a.d.'
    ],
@@ -63,7 +63,7 @@ terms_by_country = {
    ],
    'Columbia': ['s.a.', 'e.u.', 's.a.s.', 'suc. de descendants', 'sca'],
    'Croatia': ['d.d.', 'd.d.o.', 'obrt'],
-   'Czech Republic': ['a.s.', 'akc. spol.', 's.r.o.', 'v.o.s.', 'k.s.', 'sro', 'vos'],
+   'Czech Republic': ['a.s.', 'akc. spol.', 's.r.o.', 'spol. s r.o.', 'v.o.s.', u've\xc5\x99. obch. spol.', 'a spol.', 'k.s.', 'kom. spol.', 'kom. spol.'],
    'Denmark': ['i/s', 'a/s', 'k/s', 'p/s', 'amba', 'a.m.b.a.', 'fmba', 'f.m.b.a.', 'smba',
       's.m.b.a.', 'g/s'
    ],
@@ -122,7 +122,7 @@ terms_by_country = {
    'Serbia': ['d.o.o.', 'a.d.', 'k.d.', 'o.d.'],
    'Singapore': ['bhd', 'pte ltd', 'sdn bhd', 'llp', 'l.l.p.', 'ltd.', 'pte'],
    'Slovenia': ['d.d.', 'd.o.o.', 'd.n.o.', 'k.d.', 's.p.'],
-   'Slovokia': ['a.s.', 's.r.o.', 'k.s.', 'v.o.s.'],
+   'Slovakia': ['a.s.', 'akc. spol.', 's.r.o.', 'spol. s r.o.', 'k.s.', 'kom. spol.', 'v.o.s.', 'a spol.'],
    'Spain': ['s.a.', 's.a.d.', 's.l.', 's.l.l.', 's.l.n.e.', 's.c.', 's.cra', 's.coop',
       'sal', 'sccl'
    ],
