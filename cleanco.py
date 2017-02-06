@@ -85,11 +85,13 @@ class cleanco(object):
 					end = len(item)
 					name = name[0:-end-1]
 					name = self.string_stripper(name)
+					loname = name.lower()
 					if multi==False:
 						break
 			if prefix:
 				if loname.startswith(item+' '):
 					name = name[len(item)+1:]
+					loname = name.lower()
 					if multi==False:
 						break
 			if middle:
@@ -98,6 +100,7 @@ class cleanco(object):
 					start = loname.find(term)
 					end = start + len(term)
 					name = name[:start] + " " + name[end:]
+					loname = name.lower()
 					if multi==False:
 						break
 
