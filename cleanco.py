@@ -74,27 +74,28 @@ class cleanco(object):
 
 		# Run it through the string_stripper once more
 		name = self.string_stripper(name)
-
+                loname = name.lower()
+		
 		# return name without suffixed/prefixed/middle type term(s)
 
 		for item in suffix_sort:
 			if suffix:
-				if name.lower().endswith(" " + item):
-					start = name.lower().find(item)
+				if loname.endswith(" " + item):
+					start = loname.find(item)
 					end = len(item)
 					name = name[0:-end-1]
 					name = self.string_stripper(name)
 					if multi==False:
 						break
 			if prefix:
-				if name.lower().startswith(item+' '):
+				if loname.startswith(item+' '):
 					name = name[len(item)+1:]
 					if multi==False:
 						break
 			if middle:
 				term = ' ' + item + ' '
-				if term in name.lower():
-					start = name.lower().find(term)
+				if term in loname:
+					start = loname.find(term)
 					end = start + len(term)
 					name = name[:start] + " " + name[end:]
 					if multi==False:
