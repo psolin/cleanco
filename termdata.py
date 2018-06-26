@@ -1,6 +1,6 @@
 terms_by_type = {
    'Corporation': ['company', 'incorporated', 'corporation', 'corp.', 'corp', 'inc',
-      '& co.', '& co', 'inc.', 's.p.a.', 'n.v.', 'a.g.', 'ag', 'aktiengesellschaft', 'nuf', 's.a.', 's.f.',
+      '& co.', '& co', 'inc.', 's.p.a.', 'n.v.', 'a.g.', 'ag', 'nuf', 's.a.', 's.f.',
       'oao', 'co.', 'co'
    ],
    'General Partnership': ['soc.col.', 'stg', 'd.n.o.', 'ltda.', 'v.o.s.', 'a spol.',
@@ -48,7 +48,7 @@ terms_by_country = {
       'soc.col.'
    ],
    'Australia': ['nl', 'pty. ltd.', 'pty ltd'],
-   'Austria': ['e.u.', 'stg', 'gesbr', 'a.g.', 'ag', 'og', 'kg', 'aktiengesellschaft'],
+   'Austria': ['e.u.', 'stg', 'gesbr', 'a.g.', 'ag', 'og', 'kg'],
    'Belarus': ['aat', '3at'],
    'Belgium': ['esv', 'vzw', 'vof', 'snc', 'comm.v', 'scs', 'bvba', 'sprl', 'cbva',
       'cvoa', 'sca', 'sep', 'gie'
@@ -78,7 +78,7 @@ terms_by_country = {
       'scs', 'sca', 'scop', 'sem', 'sas'
    ],
    'Germany': ['gmbh & co. kg', 'gmbh & co. kg', 'e.g.', 'e.v.', 'gbr', 'ohg', 'partg',
-      'kgaa', 'gmbh', 'g.m.b.h.', 'ag', 'aktiengesellschaft'
+      'kgaa', 'gmbh', 'g.m.b.h.', 'ag'
    ],
    'Greece': ['a.e.', 'ae', 'e.e.', 'ee', 'epe', 'e.p.e.', 'mepe', 'm.e.p.e.', 'o.e.',
       'oe', 'ovee', 'o.v.e.e.'
