@@ -74,7 +74,7 @@ class cleanco(object):
 
 		# Run it through the string_stripper once more
 		name = self.string_stripper(name)
-                loname = name.lower()
+		loname = name.lower()
 		
 		# return name without suffixed/prefixed/middle type term(s)
 

@@ -62,7 +62,7 @@ terms_by_country = {
       'ltda.'
    ],
    'Columbia': ['s.a.', 'e.u.', 's.a.s.', 'suc. de descendants', 'sca'],
-   'Croatia': ['d.d.', 'd.d.o.', 'obrt'],
+   'Croatia': ['d.d.', 'd.o.o.', 'obrt'],
    'Czech Republic': ['a.s.', 'akc. spol.', 's.r.o.', 'spol. s r.o.', 'v.o.s.', u've\xc5\x99. obch. spol.', 'a spol.', 'k.s.', 'kom. spol.', 'kom. spol.'],
    'Denmark': ['i/s', 'a/s', 'k/s', 'p/s', 'amba', 'a.m.b.a.', 'fmba', 'f.m.b.a.', 'smba',
       's.m.b.a.', 'g/s'
