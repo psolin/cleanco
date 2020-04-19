@@ -29,15 +29,6 @@ def get_terms():
     cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
     return set(ts + cs)
 
-def get_terms_db():
-    # Create/overwrite the database
-    create_connection()
-    #return all terms
-    return(all_terms())
-
-print(get_terms_db())
-
-
 def strip_tail(name):
     "Get rid of all trailing non-letter symbols except the dot"
     match = re.search(tail_removal_rexp, name)
@@ -82,5 +73,3 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, multi=False):
                 break
 
     return strip_tail(" ".join(parts))
-
-

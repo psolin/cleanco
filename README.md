@@ -17,36 +17,39 @@ countries.
 ## How do I install it?
 Just use 'pip install cleanco' if you have pip installed (as most systems do). Or download the zip distribution from this site, unzip it and then:
 
-* Mac: `cd` into it, and enter `sudo python setup.py install` along with your system password.
-* Windows: Same thing but without `sudo`.
+* Mac: `cd` into it, and enter `sudo python3 setup.py install` along with your system password.
+* Windows: `python setup.py install`.
 
 ## How does it work?
-Let's look at some sample code.  First, create an instance of the module:
+If you only want a clean version of the company name, first pull in the terms:
 
-    >>> from cleanco import cleanco
+    >>> terms = get_terms()
 
-Prepare a string of a company name that you want to process:
+Then, run the string and the terms through the "basename" function:
 
-    >>> business_name = "Some Big Pharma, LLC"
+    >>> basename("Daddy & Sons, Ltd.", terms)
+    Daddy & Sons
 
-Throw it into the instance:
+If you want to classify the name by business entity type, first select it as a source:
 
-    >>> x = cleanco(business_name)
+    >>> classification_sources = typesources()
 
-You can now get the company types:
+Then, run the string and classication source through the "matches" function:
 
-    >>> x.type()
-    ['Limited Liability Company']
+    >>> matches("MyCompany Ltd", classification_sources)
+    ['Limited']
 
-...the possible countries...
+If you want to classify the name by possible countries, first select it as a source:
 
-    >>> x.country()
+    >>> classification_sources = countrysources()
+
+Then, run the string and classication source through the "matches" function:
+
+    >>> matches("MyCompany Ltd", classification_sources)
     ['United States of America', 'Philippines']
 
-...and a clean version of the company name.
-
-    >>> x.clean_name()
-    'Some Big Pharma'
+## Compatibility with previous versions
+cleanco's API was simplified in version 2.0. While previous functions are still compatible, they are not preferred.
 
 ## Are there bugs?
 See the issue tracker. If you find a bug or have enhancement suggestion or question, please file an issue and provide a PR if you can. For example, some of the company suffixes may be incorrect or there may be suffixes missing.
@@ -55,5 +58,5 @@ To run tests, simply install the package and run `python setup.py test`. To run 
 
 ## Special thanks to:
 
-- Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity), where I spent hours of research.
+- Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity).
 - Contributors: Petri Savolainen <petri.savolainen@koodaamo.fi>

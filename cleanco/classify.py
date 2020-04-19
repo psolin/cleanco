@@ -17,8 +17,8 @@ Examples of use:
 
 """
 
-from .termdata import terms_by_country, terms_by_type
-from .clean import strip_tail, normalized
+from termdata import terms_by_country, terms_by_type
+from clean import strip_tail, normalized
 
 
 def typesources():
@@ -40,7 +40,6 @@ def countrysources():
 
    return sorted(countries, key=lambda part: len(part[1]), reverse=True)
 
-
 def matches(name, sources):
     "get types or countries matching with the legal terms in name"
 
@@ -48,6 +47,7 @@ def matches(name, sources):
     parts = name.split()
     nparts = [normalized(p) for p in parts]
     matches = []
+
     for classifier, term in sources:
         nterm = normalized(term)
         try:

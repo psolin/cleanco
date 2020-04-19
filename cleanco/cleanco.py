@@ -1,5 +1,5 @@
-from .clean import get_terms, basename
-from .classify import typesources, countrysources
+from clean import get_terms, basename
+from classify import typesources, countrysources
 
 
 class cleanco:
