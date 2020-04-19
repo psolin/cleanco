@@ -27,8 +27,7 @@ def get_terms():
     ts = functools.reduce(operator.iconcat, terms_by_type.values(), [])
     cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
     return set(ts + cs)
-
-print(get_terms())
+    
 
 def strip_tail(name):
     "Get rid of all trailing non-letter symbols except the dot"
