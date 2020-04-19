@@ -17,7 +17,6 @@ from collections import OrderedDict
 import re
 import unicodedata
 from termdata import terms_by_type, terms_by_country
-from conn import *
 
 
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
@@ -28,6 +27,8 @@ def get_terms():
     ts = functools.reduce(operator.iconcat, terms_by_type.values(), [])
     cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
     return set(ts + cs)
+
+print(get_terms())
 
 def strip_tail(name):
     "Get rid of all trailing non-letter symbols except the dot"

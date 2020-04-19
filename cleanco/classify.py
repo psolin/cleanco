@@ -30,7 +30,6 @@ def typesources():
 
    return sorted(types, key=lambda part: len(part[1]), reverse=True)
 
-
 def countrysources():
    "business countries / type abbreviations sorted by length of type abbreviations"
    countries = []
