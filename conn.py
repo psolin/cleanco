@@ -2,17 +2,12 @@ import sqlite3
 import os.path
 
 def create_connection():
-  isdb = os.path.isfile("terms.db") 
-
-  if isdb == True:
-    pass
-  else:
-    c = sqlite3.connect("terms.db")
-    fd = open('terms.sql', 'r')
-    script = fd.read()
-    c.executescript(script)
-    fd.close()
-    print("db created")
+  c = sqlite3.connect("terms.db")
+  fd = open('terms.sql', 'r')
+  script = fd.read()
+  c.executescript(script)
+  fd.close()
+  print("db created")
 
 def all_terms():
   conn = sqlite3.connect('data/terms.db')
