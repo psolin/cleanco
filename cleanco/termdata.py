@@ -19,7 +19,7 @@ terms_by_type = {
       'lda.', 'tov', 'pp'
    ],
    'Limited Liability Company': ['pllc', 'llc', 'l.l.c.', 'plc.', 'plc', 'hf.', 'oyj',
-      'a.e.', 'nyrt.', 'p.l.c.', 'sh.a.', 's.a.', 's.r.l.', 'srl.', 'aat', '3at', 'd.d.',
+      'a.e.', 'nyrt.', 'p.l.c.', 'sh.a.', 's.a.', 's.r.l.', 'srl.', 'srl', 'aat', '3at', 'd.d.',
       's.r.o.', 'spol. s r.o.', 's.m.b.a.', 'smba', 'sarl', 'nv', 'sa', 'aps',
       'a/s', 'p/s', 'sae', 'sasu', 'eurl', 'ae', 'cpt', 'as', 'ab', 'asa', 'ooo', 'dat',
       'vat', 'zat', 'mchj', 'a.d.'
@@ -50,7 +50,7 @@ terms_by_country = {
    'Australia': ['nl', 'pty. ltd.', 'pty ltd'],
    'Austria': ['e.u.', 'stg', 'gesbr', 'a.g.', 'ag', 'og', 'kg', 'aktiengesellschaft'],
    'Belarus': ['aat', '3at'],
-   'Belgium': ['esv', 'vzw', 'vof', 'snc', 'comm.v', 'scs', 'bvba', 'sprl', 'cbva',
+   'Belgium': ['esv', 'vzw', 'vof', 'snc', 'comm.v', 'scs', 'bvba', 'sprl', 'cvba',
       'cvoa', 'sca', 'sep', 'gie'
    ],
    'Bosnia and Herzegovina': ['d.d.', 'a.d.', 'd.n.o.', 'd.o.o.', 'k.v.', 's.p.'],
@@ -67,7 +67,7 @@ terms_by_country = {
    'Denmark': ['i/s', 'a/s', 'k/s', 'p/s', 'amba', 'a.m.b.a.', 'fmba', 'f.m.b.a.', 'smba',
       's.m.b.a.', 'g/s'
    ],
-   'Dominican Republic': ['c. por a.', 'cxa', 's.a.', 's.a.s.', 'srl.', 'eirl.', 'sa',
+   'Dominican Republic': ['c. por a.', 'cxa', 's.a.', 's.a.s.', 'srl.', 'srl', 'eirl.', 'sa',
       'sas'
    ],
    'Ecuador': ['s.a.', 'c.a.', 'sa', 'ep'],
