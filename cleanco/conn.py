@@ -13,22 +13,22 @@ def all_terms():
   conn = sqlite3.connect('terms.db')
   conn.row_factory = lambda cursor, row: row[0]
   c = conn.cursor()
-  c.execute('SELECT * FROM term ORDER BY description;')
+  c.execute('SELECT * FROM term ORDER BY LENGTH(description);')
   rows = c.fetchall()
   return(rows)
 
-def country_term(term):
+def country_term():
   conn = sqlite3.connect('terms.db')
   conn.row_factory = lambda cursor, row: row[0]
   c = conn.cursor()
-  c.execute('SELECT country FROM countryterm WHERE term = ?', (term,))
+  c.execute('SELECT country FROM countryterm')
   rows = list(c)
   return(rows)
 
-def type_term(term):
+def type_term():
   conn = sqlite3.connect('terms.db')
   conn.row_factory = lambda cursor, row: row[0]
   c = conn.cursor()
-  c.execute('SELECT type FROM typeterm WHERE term = ?', (term,))
+  c.execute('SELECT type FROM typeterm')
   rows = list(c)
   return(rows)
