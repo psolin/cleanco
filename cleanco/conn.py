@@ -10,7 +10,7 @@ def create_connection():
   print("db created")
 
 def all_terms():
-  conn = sqlite3.connect('data/terms.db')
+  conn = sqlite3.connect('terms.db')
   conn.row_factory = lambda cursor, row: row[0]
   c = conn.cursor()
   c.execute('SELECT * FROM term ORDER BY description;')
@@ -18,7 +18,7 @@ def all_terms():
   return(rows)
 
 def country_term(term):
-  conn = sqlite3.connect('data/terms.db')
+  conn = sqlite3.connect('terms.db')
   conn.row_factory = lambda cursor, row: row[0]
   c = conn.cursor()
   c.execute('SELECT country FROM countryterm WHERE term = ?', (term,))
@@ -26,7 +26,7 @@ def country_term(term):
   return(rows)
 
 def type_term(term):
-  conn = sqlite3.connect('data/terms.db')
+  conn = sqlite3.connect('terms.db')
   conn.row_factory = lambda cursor, row: row[0]
   c = conn.cursor()
   c.execute('SELECT type FROM typeterm WHERE term = ?', (term,))

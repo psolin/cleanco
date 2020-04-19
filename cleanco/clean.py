@@ -16,7 +16,8 @@ import operator
 from collections import OrderedDict
 import re
 import unicodedata
-from .termdata import terms_by_type, terms_by_country
+from termdata import terms_by_type, terms_by_country
+from conn import *
 
 
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
@@ -27,6 +28,14 @@ def get_terms():
     ts = functools.reduce(operator.iconcat, terms_by_type.values(), [])
     cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
     return set(ts + cs)
+
+def get_terms_db():
+    # Create/overwrite the database
+    create_connection()
+    #return all terms
+    return(all_terms())
+
+print(get_terms_db())
 
 
 def strip_tail(name):
