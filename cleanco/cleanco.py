@@ -1,20 +1,21 @@
 from .clean import get_terms, basename
-from .classify import typesources, countrysources
+from .classify import typesources, countrysources, matches
 
 
 class cleanco:
    "silly backwards compatibility wrapper, you should NOT use this"
 
-   def __init__(self):
+   def __init__(self, name):
+      self._name = name
       self._types = typesources()
       self._countries = countrysources()
       self._terms = get_terms()
 
-   def clean_name(self, name):
-      return basename(name, self._terms)
+   def clean_name(self):
+      return basename(self._name, self._terms)
 
-   def country(self, name):
-      return matches(name, self._countries)
+   def country(self):
+      return matches(self._name, self._countries)
 
-   def type(self, name):
-      return matches(name, self._types)
+   def type(self):
+      return matches(self._name, self._types)
