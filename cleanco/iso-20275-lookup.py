@@ -1,8 +1,8 @@
 from iso20275 import Elf, ElfEntry
-import inspect
 
 def classifierList():
-    return(classifier_list=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)])
+    property_names=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)]
+    return(property_names)
 
 def allAbbreviations():
     returned_codes = []
@@ -46,3 +46,5 @@ def idClassification(code_list,classifier):
     myset = set(classifier_list)
     classifier_list = list(myset)
     return(classifier_list)
+
+print(allAbbreviations())
