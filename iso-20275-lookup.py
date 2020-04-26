@@ -1,6 +1,6 @@
 from iso20275 import Elf
 
-def allcodes():
+def allAbbreviations():
     code_list = []
 
     for elf_code, values in Elf.items():
@@ -17,4 +17,26 @@ def allcodes():
 
     return(code_list)
 
-print(allcodes())
+def idElfCode(abbreviation):
+    
+    ElfCodeList = []
+    abbreviation = abbreviation
+    
+    for elf_code, values in Elf.items():
+        entity_codes = Elf[elf_code][0].local_abbreviations
+        if ";" in entity_codes:
+        	entity_codes = entity_codes.split(';')
+        if abbreviation == entity_codes:
+        	ElfCodeList.append(elf_code)
+        else:
+            pass
+
+    return(ElfCodeList)
+
+def idElfLocalName(code_list):
+    
+    local_name_list = []
+    code_list = code_list
+    for item in code_list:
+    	local_name_list.append(Elf[item][0].local_name)
+    return(local_name_list)
