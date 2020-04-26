@@ -46,5 +46,3 @@ def idClassification(code_list,classifier):
     myset = set(classifier_list)
     classifier_list = list(myset)
     return(classifier_list)
-
-print(allAbbreviations())
