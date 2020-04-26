@@ -16,15 +16,18 @@ Examples of use:
 from iso20275 import Elf, ElfEntry
 from .clean import strip_tail, normalized
 
+
 def classifierList():
-    property_names=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)]
+    property_names = [p for p in dir(ElfEntry) if isinstance(
+        getattr(ElfEntry, p), property)]
     return(property_names)
+
 
 def idClassification(abbreviation, source):
     classifier_list = []
     ElfCodeList = []
     abbreviation = abbreviation
-    
+
     for elf_code, values in Elf.items():
         entity_codes = Elf[elf_code][0].local_abbreviations
         if ";" in entity_codes:
@@ -35,12 +38,13 @@ def idClassification(abbreviation, source):
             pass
 
     for item in ElfCodeList:
-        test = getattr(Elf[item][0],source)
+        test = getattr(Elf[item][0], source)
         classifier_list.append(test)
     # Unique values returned
     myset = set(classifier_list)
     classifier_list = list(myset)
     return(classifier_list)
+
 
 def matches(name, source):
 
@@ -53,16 +57,15 @@ def matches(name, source):
     for term in nparts:
         try:
             nterm = normalized(term)
-            classification_list = idClassification(nterm,source)
+            classification_list = idClassification(nterm, source)
             match_list.append(classification_list)
         except ValueError:
-          pass
+            pass
 
     try:
         for item in classification_list:
             matches.append(item)
     except:
-      pass
-
+        pass
 
     return matches

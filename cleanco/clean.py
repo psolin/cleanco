@@ -33,10 +33,11 @@ def get_terms():
                 terms.append(split_item)
         else:
             terms.append(entity_codes)
-    
+
     terms = filter(None, terms)
     terms = list(filter(None, terms))
     return (terms)
+
 
 def strip_tail(name):
     "Get rid of all trailing non-letter symbols except the dot"
@@ -82,5 +83,3 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, multi=False):
                 break
 
     return strip_tail(" ".join(parts))
-
-
