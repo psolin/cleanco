@@ -13,8 +13,34 @@ Examples of use:
 
 """
 
-from .iso20275lookup import idClassification
+from iso20275 import Elf, ElfEntry
 from .clean import strip_tail, normalized
+
+def classifierList():
+    property_names=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)]
+    return(property_names)
+
+def idClassification(abbreviation, source):
+    classifier_list = []
+    ElfCodeList = []
+    abbreviation = abbreviation
+    
+    for elf_code, values in Elf.items():
+        entity_codes = Elf[elf_code][0].local_abbreviations
+        if ";" in entity_codes:
+            entity_codes = entity_codes.split(';')
+        if abbreviation in entity_codes:
+            ElfCodeList.append(elf_code)
+        else:
+            pass
+
+    for item in ElfCodeList:
+        test = getattr(Elf[item][0],source)
+        classifier_list.append(test)
+    # Unique values returned
+    myset = set(classifier_list)
+    classifier_list = list(myset)
+    return(classifier_list)
 
 def matches(name, source):
 

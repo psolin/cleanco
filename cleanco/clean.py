@@ -16,14 +16,26 @@ import operator
 from collections import OrderedDict
 import re
 import unicodedata
-from .iso20275lookup import allAbbreviations
+from iso20275 import ElfEntry
 
 
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
 
 
 def get_terms():
-    terms = allAbbreviations()
+    terms = []
+
+    for elf_code, values in Elf.items():
+        entity_codes = Elf[elf_code][0].local_abbreviations
+        if ";" in entity_codes:
+            split = entity_codes.split(';')
+            for split_item in split:
+                terms.append(split_item)
+        else:
+            terms.append(entity_codes)
+    
+    terms = filter(None, terms)
+    terms = list(filter(None, terms))
     return (terms)
 
 def strip_tail(name):
