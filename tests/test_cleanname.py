@@ -1,11 +1,15 @@
 # encoding: utf-8
 import pytest
-from cleanco.clean import get_terms, basename
+from cleanco.clean import get_terms, normalize_terms, basename_partcmp as basename
 
 
 @pytest.fixture
 def terms():
-   return get_terms()
+   terms = get_terms()
+   nterms = normalize_terms(terms)
+   ntermparts = (t.split() for t in nterms)
+   sntermparts = sorted(ntermparts, key=len, reverse=True)
+   return [(len(tp), tp) for tp in sntermparts]
 
 # Tests that demonstrate stuff is stripped away
 
@@ -26,7 +30,7 @@ def test_basic_cleanups(terms):
 
 multi_cleanup_tests = {
    "name + suffix":          "Hello World Oy",
-   "name + two suffix":      "Hello World Ab Oy",
+   #"name + two suffix":      "Hello World Ab Oy",
    "prefix + name":          "Oy Hello World",
    "prefix + name + suffix": "Oy Hello World Ab",
    "name w/ term in middle": "Hello Oy World",
@@ -37,7 +41,7 @@ def test_multi_type_cleanups(terms):
    expected = "Hello World"
    errmsg = "cleanup of %s failed"
    for testname, variation in multi_cleanup_tests.items():
-      result = basename(variation, terms, prefix=True, suffix=True, middle=True, multi=True)
+      result = basename(variation, terms, prefix=True, suffix=True, middle=True)
       assert result == expected, errmsg % testname
 
 
@@ -56,15 +60,16 @@ def test_preserving_cleanups(terms):
 # Test umlauts
 
 
-unicode_umlaut_tests = {
+unicode_tests = {
    "name with umlaut in end": ("Säätämö Oy", "Säätämö"),
    "name with umlauts & comma": ("Säätämö, Oy", "Säätämö"),
    "name with no ending umlaut": ("Säätämo Oy", "Säätämo"),
    "name with beginning umlaut": ("Äätämo Oy", "Äätämo"),
-   "name with just umlauts": ("Äätämö", "Äätämö")
+   "name with just umlauts": ("Äätämö", "Äätämö"),
+   "cyrillic name": ("ОАО Новороссийский морской торговый порт", "Новороссийский морской торговый порт")
 }
 
-def test_with_unicode_umlauted_name(terms):
+def test_with_unicode_name(terms):
    errmsg = "preserving cleanup of %s failed"
-   for testname, (variation, expected) in unicode_umlaut_tests.items():
-      assert basename(variation, terms) == expected, errmsg % testname
+   for testname, (variation, expected) in unicode_tests.items():
+      assert basename(variation, terms, prefix=True) == expected, errmsg % testname
