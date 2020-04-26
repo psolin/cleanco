@@ -1,7 +1,8 @@
 from iso20275 import Elf, ElfEntry
 import inspect
 
-classifier_list=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)]
+def classifierList():
+    return(classifier_list=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)])
 
 def allAbbreviations():
     code_list = []
