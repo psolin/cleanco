@@ -1,4 +1,7 @@
-from iso20275 import Elf
+from iso20275 import Elf, ElfEntry
+import inspect
+
+classifier_list=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)]
 
 def allAbbreviations():
     code_list = []
@@ -32,19 +35,13 @@ def idElfCode(abbreviation):
 
     return(ElfCodeList)
 
-def idElfLocalName(code_list):
+def idClassification(code_list,classifier):
     local_name_list = []
     code_list = code_list
+    classifier = classifier
     for item in code_list:
-    	local_name_list.append(Elf[item][0].local_name)
+    	local_name_list.append(Elf[item][0].classifier)
+    # Unique values returned
+    myset = set(local_name_list)
+    local_name_list = list(myset)
     return(local_name_list)
-
-def idElfCountry(code_list):
-    country_list = []
-    code_list = code_list
-    for item in code_list:
-        country_list.append(Elf[item][0].country)
-    return(country_list)
-
-test_elf_list = idElfCode("LTD")
-print(idElfLocalName(test_elf_list))
