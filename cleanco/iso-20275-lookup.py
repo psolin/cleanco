@@ -5,21 +5,21 @@ def classifierList():
     return(classifier_list=[p for p in dir(ElfEntry) if isinstance(getattr(ElfEntry,p),property)])
 
 def allAbbreviations():
-    code_list = []
+    returned_codes = []
 
     for elf_code, values in Elf.items():
         entity_codes = Elf[elf_code][0].local_abbreviations
         if ";" in entity_codes:
             split = entity_codes.split(';')
             for split_item in split:
-                code_list.append(split_item)
+                returned_codes.append(split_item)
         else:
-            code_list.append(entity_codes)
+            returned_codes.append(entity_codes)
     
-    code_list = filter(None, code_list)
-    code_list = list(filter(None, code_list))
+    returned_codes = filter(None, returned_codes)
+    returned_codes = list(filter(None, returned_codes))
 
-    return(code_list)
+    return(returned_codes)
 
 def idElfCode(abbreviation):
     ElfCodeList = []
