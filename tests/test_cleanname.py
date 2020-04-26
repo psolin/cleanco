@@ -69,4 +69,4 @@ unicode_umlaut_tests = {
 def test_with_unicode_umlauted_name(terms):
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in unicode_umlaut_tests.items():
-      assert basename(variation, terms) == expected, errmsg % testname
+      assert basename(variation, terms, prefix=True) == expected, errmsg % testname

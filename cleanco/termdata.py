@@ -118,7 +118,7 @@ terms_by_country = {
    'Poland': ['p.p.', 's.k.a.', 'sp.j.', 'sp.k.', 'sp.p.', 'sp. z.o.o.', 's.c.', 's.a.'],
    'Portugal': ['lda.', 'crl', 's.a.', 's.f.', 'sgps'],
    'Romania': ['s.c.a.', 's.c.s.', 's.n.c.', 's.r.l.', 'o.n.g.', 's.a.'],
-   'Russia': ['ooo', 'oao', 'zao', '3ao'],
+   'Russia': ['ooo', 'oao', 'zao', '3ao', 'пао', 'оао', 'ооо'],
    'Serbia': ['d.o.o.', 'a.d.', 'k.d.', 'o.d.'],
    'Singapore': ['bhd', 'pte ltd', 'sdn bhd', 'llp', 'l.l.p.', 'ltd.', 'pte'],
    'Slovenia': ['d.d.', 'd.o.o.', 'd.n.o.', 'k.d.', 's.p.'],
