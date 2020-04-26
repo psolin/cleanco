@@ -3,59 +3,41 @@ Functions to help classify business names by country or type, based on legal ter
 
 Examples of use:
 
->> # check name for its possible business type(s)
->> classification_sources = typesources()
->> matches("MyCompany Ltd", classification_sources)
-['Limited']
->>
+# check name for its possible business type(s)
+>> matches("MyCompany Ltd", "local_name")
+['Private Limited by Guarantee', 'Private Limited Company', 'Limited Liability Company', 'New Generation Co-operatives']
 
->> # check name for its possible jurisdictions, usually countries
->> classification_sources = countrysources()
->> matches("MyCompany Ltd", classification_sources)
-['New Zealand', 'United Kingdom', 'United States of America']
->>
+# check name for its possible countries
+>> matches("MyCompany Ltd", "country")
+['United States of America', 'United Kingdom', 'Canada']
 
 """
 
-from .termdata import terms_by_country, terms_by_type
+from .iso20275lookup import idElfCode, idClassification
 from .clean import strip_tail, normalized
 
-
-def typesources():
-   "business types / abbreviations sorted by length of business type"
-   types = []
-   for business_type in terms_by_type:
-       for item in terms_by_type[business_type]:
-           types.append((business_type, item))
-
-   return sorted(types, key=lambda part: len(part[1]), reverse=True)
-
-
-def countrysources():
-   "business countries / type abbreviations sorted by length of type abbreviations"
-   countries = []
-   for country in terms_by_country:
-       for item in terms_by_country[country]:
-           countries.append((country, item))
-
-   return sorted(countries, key=lambda part: len(part[1]), reverse=True)
-
-
-def matches(name, sources):
-    "get types or countries matching with the legal terms in name"
+def matches(name, source):
 
     name = strip_tail(name)
     parts = name.split()
     nparts = [normalized(p) for p in parts]
+    match_list = []
     matches = []
-    for classifier, term in sources:
-        nterm = normalized(term)
+
+    for term in nparts:
         try:
-            idx = nparts.index(nterm)
+            nterm = normalized(term)
+            code_list = idElfCode(nterm)
+            classification_list = idClassification(code_list,source)
+            match_list.append(classification_list)
         except ValueError:
-            pass
-        else:
-            matches.append(classifier)
+          pass
+
+    try:
+        for item in classification_list:
+            matches.append(item)
+    except:
+      pass
+
 
     return matches
-

@@ -16,18 +16,15 @@ import operator
 from collections import OrderedDict
 import re
 import unicodedata
-from .termdata import terms_by_type, terms_by_country
+from .iso20275lookup import allAbbreviations
 
 
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
 
 
 def get_terms():
-    "retrieve all unique terms from termdata definitions"
-    ts = functools.reduce(operator.iconcat, terms_by_type.values(), [])
-    cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
-    return set(ts + cs)
-
+    terms = allAbbreviations()
+    return (terms)
 
 def strip_tail(name):
     "Get rid of all trailing non-letter symbols except the dot"

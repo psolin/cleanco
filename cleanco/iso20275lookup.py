@@ -36,12 +36,13 @@ def idElfCode(abbreviation):
 
     return(ElfCodeList)
 
-def idClassification(code_list,classifier):
+def idClassification(code_list,source):
     classifier_list = []
     code_list = code_list
-    classifier = classifier
+    source = source
     for item in code_list:
-    	local_name_list.append(Elf[item][0].classifier)
+        test = getattr(Elf[item][0],source)
+        classifier_list.append(test)
     # Unique values returned
     myset = set(classifier_list)
     classifier_list = list(myset)
