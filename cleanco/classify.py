@@ -13,7 +13,7 @@ Examples of use:
 
 """
 
-from .iso20275lookup import idElfCode, idClassification
+from .iso20275lookup import idClassification
 from .clean import strip_tail, normalized
 
 def matches(name, source):
@@ -27,8 +27,7 @@ def matches(name, source):
     for term in nparts:
         try:
             nterm = normalized(term)
-            code_list = idElfCode(nterm)
-            classification_list = idClassification(code_list,source)
+            classification_list = idClassification(nterm,source)
             match_list.append(classification_list)
         except ValueError:
           pass

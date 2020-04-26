@@ -21,7 +21,8 @@ def allAbbreviations():
 
     return(returned_codes)
 
-def idElfCode(abbreviation):
+def idClassification(abbreviation, source):
+    classifier_list = []
     ElfCodeList = []
     abbreviation = abbreviation
     
@@ -34,13 +35,7 @@ def idElfCode(abbreviation):
         else:
             pass
 
-    return(ElfCodeList)
-
-def idClassification(code_list,source):
-    classifier_list = []
-    code_list = code_list
-    source = source
-    for item in code_list:
+    for item in ElfCodeList:
         test = getattr(Elf[item][0],source)
         classifier_list.append(test)
     # Unique values returned
