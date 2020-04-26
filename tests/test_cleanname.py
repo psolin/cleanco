@@ -61,7 +61,9 @@ unicode_umlaut_tests = {
    "name with umlauts & comma": ("Säätämö, Oy", "Säätämö"),
    "name with no ending umlaut": ("Säätämo Oy", "Säätämo"),
    "name with beginning umlaut": ("Äätämo Oy", "Äätämo"),
-   "name with just umlauts": ("Äätämö", "Äätämö")
+   "name with just umlauts": ("Äätämö", "Äätämö"),
+   "cyrillic name": ("ОАО Новороссийский морской торговый порт", "Новороссийский морской торговый порт")
+
 }
 
 def test_with_unicode_umlauted_name(terms):
