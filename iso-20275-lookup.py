@@ -18,7 +18,6 @@ def allAbbreviations():
     return(code_list)
 
 def idElfCode(abbreviation):
-    
     ElfCodeList = []
     abbreviation = abbreviation
     
@@ -26,7 +25,7 @@ def idElfCode(abbreviation):
         entity_codes = Elf[elf_code][0].local_abbreviations
         if ";" in entity_codes:
         	entity_codes = entity_codes.split(';')
-        if abbreviation == entity_codes:
+        if abbreviation in entity_codes:
         	ElfCodeList.append(elf_code)
         else:
             pass
@@ -34,9 +33,18 @@ def idElfCode(abbreviation):
     return(ElfCodeList)
 
 def idElfLocalName(code_list):
-    
     local_name_list = []
     code_list = code_list
     for item in code_list:
     	local_name_list.append(Elf[item][0].local_name)
     return(local_name_list)
+
+def idElfCountry(code_list):
+    country_list = []
+    code_list = code_list
+    for item in code_list:
+        country_list.append(Elf[item][0].country)
+    return(country_list)
+
+test_elf_list = idElfCode("LTD")
+print(idElfLocalName(test_elf_list))
