@@ -1,11 +1,11 @@
 # encoding: utf-8
 import pytest
-from cleanco.clean import get_terms, basename
+from cleanco.clean import prepare_terms, basename
 
 
 @pytest.fixture
 def terms():
-   return get_terms()
+   return prepare_terms()
 
 # Tests that demonstrate stuff is stripped away
 
@@ -37,7 +37,7 @@ def test_multi_type_cleanups(terms):
    expected = "Hello World"
    errmsg = "cleanup of %s failed"
    for testname, variation in multi_cleanup_tests.items():
-      result = basename(variation, terms, prefix=True, suffix=True, middle=True, multi=True)
+      result = basename(variation, terms, prefix=True, suffix=True, middle=True)
       assert result == expected, errmsg % testname
 
 
