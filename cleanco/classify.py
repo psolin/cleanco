@@ -54,8 +54,7 @@ def matches(name, source):
 
     for term in nparts:
         try:
-            nterm = normalized(term)
-            classification_list = classification(nterm, source)
+            classification_list = classification(term, source)
             match_list.append(classification_list)
         except ValueError:
             pass
