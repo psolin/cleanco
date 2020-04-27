@@ -21,7 +21,34 @@ Just use 'pip install cleanco' if you have pip installed (as most systems do). O
 * Windows: Same thing but without `sudo`.
 
 ## How does it work?
-Let's look at some sample code.  First, create an instance of the module:
+Let's look at some sample code. To get the base name of a business without legal suffix:
+
+    >>> from cleanco import prepare_terms, basename
+    >>> business_name = "Some Big Pharma, LLC"
+    >>> terms = prepare_terms()
+    >>> basename(name, terms, prefix=False, middle=False, suffix=True)
+    >>> 'Some Big Pharma'
+
+Note that sometimes a name may have e.g. two different suffixes after one another. The cleanco
+term data covers many of these but you may want to run `basename()` twice, just in case.
+
+To get the business type or country:
+
+    >>> from cleanco import typesources, matches
+    >>> classification_sources = typesources()
+    >>> matches("Some Big Pharma, LLC", classification_sources)
+    ['Limited Liability Company']
+
+To get the possible countries of jurisdiction:
+
+    >>> from cleanco import countrysources, matches
+    >>> classification_sources = countrysources()
+    >>> matches("Some Big Pharma, LLC", classification_sources) ´
+    ['United States of America', 'Philippines']
+
+The legacy (versions < 2.0) way can still be used, too, but will eventually be discontinued:
+
+Import the utility class:
 
     >>> from cleanco import cleanco
 

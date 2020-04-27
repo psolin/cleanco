@@ -1,11 +1,11 @@
 # encoding: utf-8
 import pytest
-from cleanco.clean import get_terms, basename
+from cleanco import prepare_terms, basename
 
 
 @pytest.fixture
 def terms():
-   return get_terms()
+   return prepare_terms()
 
 # Tests that demonstrate stuff is stripped away
 
@@ -26,7 +26,6 @@ def test_basic_cleanups(terms):
 
 multi_cleanup_tests = {
    "name + suffix":          "Hello World Oy",
-   "name + two suffix":      "Hello World Ab Oy",
    "prefix + name":          "Oy Hello World",
    "prefix + name + suffix": "Oy Hello World Ab",
    "name w/ term in middle": "Hello Oy World",
@@ -37,9 +36,26 @@ def test_multi_type_cleanups(terms):
    expected = "Hello World"
    errmsg = "cleanup of %s failed"
    for testname, variation in multi_cleanup_tests.items():
-      result = basename(variation, terms, prefix=True, suffix=True, middle=True, multi=True)
+      result = basename(variation, terms, prefix=True, suffix=True, middle=True)
       assert result == expected, errmsg % testname
 
+
+# Tests that demonstrate basename can be run twice effectively
+
+double_cleanup_tests = {
+   "name + two prefix":      "Ab Oy Hello World",
+   "name + two suffix":      "Hello World Ab Oy",
+   "name + two in middle":   "Hello Ab Oy World"
+}
+
+def test_double_cleanups(terms):
+   expected = "Hello World"
+   errmsg = "cleanup of %s failed"
+   for testname, variation in multi_cleanup_tests.items():
+      result = basename(variation, terms, prefix=True, suffix=True, middle=True)
+      final = basename(result, terms, prefix=True, suffix=True, middle=True)
+
+      assert final == expected, errmsg % testname
 
 # Tests that demonstrate organization name is kept intact
 
@@ -61,10 +77,12 @@ unicode_umlaut_tests = {
    "name with umlauts & comma": ("Säätämö, Oy", "Säätämö"),
    "name with no ending umlaut": ("Säätämo Oy", "Säätämo"),
    "name with beginning umlaut": ("Äätämo Oy", "Äätämo"),
-   "name with just umlauts": ("Äätämö", "Äätämö")
+   "name with just umlauts": ("Äätämö", "Äätämö"),
+   "cyrillic name": ("ОАО Новороссийский морской торговый порт", "Новороссийский морской торговый порт")
+
 }
 
 def test_with_unicode_umlauted_name(terms):
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in unicode_umlaut_tests.items():
-      assert basename(variation, terms) == expected, errmsg % testname
+      assert basename(variation, terms, prefix=True) == expected, errmsg % testname

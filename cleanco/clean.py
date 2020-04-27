@@ -5,8 +5,8 @@ on Unicode normalization and the NFKD normalization used here.
 
 Basic usage:
 
->> terms = get_terms()
->> clean_name("Daddy & Sons, Ltd.", terms)
+>> terms = prepare_terms()
+>> basename("Daddy & Sons, Ltd.", terms, prefix=True, middle=True, suffix=True)
 Daddy & Sons
 
 """
@@ -22,7 +22,8 @@ from iso20275 import ElfEntry
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
 
 
-def get_terms():
+def get_unique_terms():
+    "retrieve all unique terms from termdata definitions"
     terms = []
 
     for elf_code, values in Elf.items():
@@ -39,8 +40,13 @@ def get_terms():
     return (terms)
 
 
+def normalize_terms(terms):
+    "normalize terms"
+    return (unicodedata.normalize("NFKD", t.casefold()) for t in terms)
+
+
 def strip_tail(name):
-    "Get rid of all trailing non-letter symbols except the dot"
+    "get rid of all trailing non-letter symbols except the dot"
     match = re.search(tail_removal_rexp, name)
     if match is not None:
         name = name[: match.span()[0]]
@@ -52,34 +58,49 @@ def normalized(text):
     return unicodedata.normalize("NFKD", text.casefold())
 
 
-def basename(name, terms, suffix=True, prefix=False, middle=False, multi=False):
+def prepare_terms():
+    "construct an optimized term structure for basename extraction"
+    terms = get_unique_terms()
+    nterms = normalize_terms(terms)
+    ntermparts = (t.split() for t in nterms)
+    sntermparts = sorted(ntermparts, key=len, reverse=True)
+    return [(len(tp), tp) for tp in sntermparts]
+
+
+def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
     "return cleaned base version of the business name"
 
     name = strip_tail(name)
-    parts = name.split()
-    nparts = [normalized(p) for p in parts]
+    nparts = name.split()
+    nname = normalized(name)
+    nnparts = nname.split()
+    nnsize = len(nnparts)
 
-    # return name without suffixed/prefixed/middle type term(s)
-    for term in (normalized(t) for t in terms):
-        if suffix and nparts[-1] == term:
-            del nparts[-1]
-            del parts[-1]
-            if multi == False:
-                break
-        if prefix and nparts[0] == term:
-            del nparts[0]
-            del parts[0]
-            if multi == False:
-                break
-        if middle:
-            try:
-                idx = nparts.index(term)
-            except ValueError:
-                pass
+    if suffix:
+        for termsize, termparts in terms:
+            if nnparts[-termsize:] == termparts:
+                del nnparts[-termsize:]
+                del nparts[-termsize:]
+
+    if prefix:
+        for termsize, termparts in terms:
+            if nnparts[:termsize] == termparts:
+                del nnparts[:termsize]
+                del nparts[:termsize]
+
+    if middle:
+        for termsize, termparts in terms:
+            if termsize > 1:
+                sizediff = nnsize - termsize
+                if sizediff > 1 and termparts == ["as.", "oy"]:
+                    for i in range(0, nnsize-termsize+1):
+                        if termparts == nnparts[i:i+termsize]:
+                            del nnparts[i:i+termsize]
+                            del nparts[i:i+termsize]
             else:
-                del nparts[idx]
-                del parts[idx]
-            if multi == False:
-                break
+                if termparts[0] in nnparts[1:-1]:
+                    idx = nnparts[1:-1].index(termparts[0])
+                    del nnparts[idx+1]
+                    del nparts[idx+1]
 
-    return strip_tail(" ".join(parts))
+    return strip_tail(" ".join(nparts))
