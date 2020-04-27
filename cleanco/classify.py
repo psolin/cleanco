@@ -53,16 +53,9 @@ def matches(name, source):
     matches = []
 
     for term in nparts:
-        try:
-            classification_list = classification(term, source)
-            match_list.append(classification_list)
-        except ValueError:
-            pass
-
-    try:
+        classification_list = classification(term, source)
+        match_list.append(classification_list)
         for item in classification_list:
             matches.append(item)
-    except:
-        pass
-
+    
     return matches
