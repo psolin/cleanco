@@ -17,13 +17,13 @@ from iso20275 import Elf, ElfEntry
 from .clean import strip_tail, normalized
 
 
-def classifierList():
+def classifiers():
     property_names = [p for p in dir(ElfEntry) if isinstance(
         getattr(ElfEntry, p), property)]
     return(property_names)
 
 
-def idClassification(abbreviation, source):
+def classification(abbreviation, source):
     classifier_list = []
     ElfCodeList = []
     abbreviation = abbreviation
@@ -57,7 +57,7 @@ def matches(name, source):
     for term in nparts:
         try:
             nterm = normalized(term)
-            classification_list = idClassification(nterm, source)
+            classification_list = classification(nterm, source)
             match_list.append(classification_list)
         except ValueError:
             pass
