@@ -18,9 +18,7 @@ from .clean import strip_tail, normalized
 
 
 def classifiers():
-    property_names = [p for p in dir(ElfEntry) if isinstance(
-        getattr(ElfEntry, p), property)]
-    return(property_names)
+    return(ElfEntry.__dict__.keys())
 
 
 def classification(abbreviation, source):
