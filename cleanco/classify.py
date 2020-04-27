@@ -21,27 +21,19 @@ def classifiers():
     return(ElfEntry.__dict__.keys())
 
 
-def classification(abbreviation, source):
-    classifier_list = []
-    ElfCodeList = []
-    abbreviation = abbreviation
+def classification(source):
+    classifier_dict = {}
 
     for elf_code, values in Elf.items():
-        entity_codes = Elf[elf_code][0].local_abbreviations
-        if ";" in entity_codes:
-            entity_codes = entity_codes.split(';')
-        if abbreviation in entity_codes:
-            ElfCodeList.append(elf_code)
-        else:
-            pass
-
-    for item in ElfCodeList:
-        test = getattr(Elf[item][0], source)
-        classifier_list.append(test)
-    # Unique values returned
-    myset = set(classifier_list)
-    classifier_list = list(myset)
-    return(classifier_list)
+        source_match = getattr(Elf[elf_code][0], source)
+        if source_match:
+            entity_codes = [Elf[elf_code][0].local_abbreviations][0].split(";")
+            if entity_codes[0]:
+                try:
+                    classifier_dict[source_match].extend(entity_codes)
+                except:
+                    classifier_dict[source_match] = entity_codes
+    return(classifier_dict)
 
 
 def matches(name, source):
@@ -49,13 +41,12 @@ def matches(name, source):
     name = strip_tail(name)
     parts = name.split()
     nparts = [normalized(p) for p in parts]
-    match_list = []
     matches = []
 
-    for term in nparts:
-        classification_list = classification(term, source)
-        match_list.append(classification_list)
-        for item in classification_list:
+    classified = classification(source)
+
+    for item in classified:
+        nitems = [normalized(p) for p in classified[item]]
+        if len(set(nparts).intersection(nitems)) > 0:
             matches.append(item)
-    
-    return matches
+    return(matches)

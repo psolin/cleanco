@@ -16,7 +16,7 @@ import operator
 from collections import OrderedDict
 import re
 import unicodedata
-from iso20275 import ElfEntry
+from iso20275 import Elf
 
 
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
@@ -27,17 +27,10 @@ def get_unique_terms():
     terms = []
 
     for elf_code, values in Elf.items():
-        entity_codes = Elf[elf_code][0].local_abbreviations
-        if ";" in entity_codes:
-            split = entity_codes.split(';')
-            for split_item in split:
-                terms.append(split_item)
-        else:
-            terms.append(entity_codes)
+        entity_codes = [Elf[elf_code][0].local_abbreviations][0].split(";")
+        terms.extend(entity_codes)
 
-    terms = filter(None, terms)
-    terms = list(filter(None, terms))
-    return (terms)
+    return (set(terms))
 
 
 def normalize_terms(terms):
@@ -93,14 +86,14 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
             if termsize > 1:
                 sizediff = nnsize - termsize
                 if sizediff > 1 and termparts == ["as.", "oy"]:
-                    for i in range(0, nnsize-termsize+1):
-                        if termparts == nnparts[i:i+termsize]:
-                            del nnparts[i:i+termsize]
-                            del nparts[i:i+termsize]
+                    for i in range(0, nnsize - termsize + 1):
+                        if termparts == nnparts[i:i + termsize]:
+                            del nnparts[i:i + termsize]
+                            del nparts[i:i + termsize]
             else:
                 if termparts[0] in nnparts[1:-1]:
                     idx = nnparts[1:-1].index(termparts[0])
-                    del nnparts[idx+1]
-                    del nparts[idx+1]
+                    del nnparts[idx + 1]
+                    del nparts[idx + 1]
 
     return strip_tail(" ".join(nparts))
