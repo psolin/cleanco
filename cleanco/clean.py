@@ -30,7 +30,7 @@ def get_unique_terms():
         entity_codes = [Elf[elf_code][0].local_abbreviations][0].split(";")
         terms.extend(entity_codes)
 
-    return (set(terms))
+    return [x for x in set(terms) if x]
 
 
 def normalize_terms(terms):

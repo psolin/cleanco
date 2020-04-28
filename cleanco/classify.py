@@ -18,7 +18,7 @@ from .clean import strip_tail, normalized
 
 
 def classifiers():
-    return(ElfEntry.__dict__.keys())
+    return ElfEntry.__dict__.keys()
 
 
 def classification(source):
@@ -33,7 +33,7 @@ def classification(source):
                     classifier_dict[source_match].extend(entity_codes)
                 except:
                     classifier_dict[source_match] = entity_codes
-    return(classifier_dict)
+    return classifier_dict
 
 
 def matches(name, source):
@@ -49,4 +49,4 @@ def matches(name, source):
         nitems = [normalized(p) for p in classified[item]]
         if len(set(nparts).intersection(nitems)) > 0:
             matches.append(item)
-    return(matches)
+    return matches
