@@ -27,7 +27,8 @@ def classification(source):
     for elf_code, values in Elf.items():
         source_match = getattr(Elf[elf_code][0], source)
         if source_match:
-            entity_codes = [Elf[elf_code][0].local_abbreviations][0].split(";")
+            entity_codes = entity_codes = [Elf[elf_code][0].local_abbreviations][0].split(";") + [Elf[elf_code][
+                0].transliterated_abbreviations][0].split(";")
             if entity_codes[0]:
                 try:
                     classifier_dict[source_match].extend(entity_codes)

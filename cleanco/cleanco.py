@@ -7,7 +7,8 @@ class cleanco:
 
     def __init__(self, name):
         self._name = name
-        self._types = "local_name"
+        self._local_name = "local_name"
+        self._transliterated_name = "transliterated_name"
         self._countries = "country"
         self._terms = prepare_terms()
 
@@ -17,5 +18,8 @@ class cleanco:
     def country(self):
         return matches(self._name, self._countries)
 
-    def type(self):
-        return matches(self._name, self._types)
+    def type(self, localized=True):
+        if localized == True:
+            return matches(self._name, self._local_name)
+        else:
+            return matches(self._name, self._transliterated_name)

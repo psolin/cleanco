@@ -27,7 +27,8 @@ def get_unique_terms():
     terms = []
 
     for elf_code, values in Elf.items():
-        entity_codes = [Elf[elf_code][0].local_abbreviations][0].split(";")
+        entity_codes = [Elf[elf_code][0].local_abbreviations][0].split(";") + [Elf[elf_code][
+            0].transliterated_abbreviations][0].split(";")
         terms.extend(entity_codes)
 
     return [x for x in set(terms) if x]
