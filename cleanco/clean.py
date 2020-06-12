@@ -51,7 +51,8 @@ def prepare_terms():
     terms = get_unique_terms()
     nterms = normalize_terms(terms)
     ntermparts = (t.split() for t in nterms)
-    sntermparts = sorted(ntermparts, key=len, reverse=True)
+    # make sure that the result is deterministic, sort terms descending by number of tokens, ascending by names
+    sntermparts = sorted(ntermparts, key=lambda x: (-len(x), x))
     return [(len(tp), tp) for tp in sntermparts]
 
 

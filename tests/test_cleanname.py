@@ -86,3 +86,8 @@ def test_with_unicode_umlauted_name(terms):
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in unicode_umlaut_tests.items():
       assert basename(variation, terms, prefix=True) == expected, errmsg % testname
+
+
+def test_deterministic_cleanup_for_two_types(terms):
+   assert basename("name ltd inc.", terms, prefix=False, suffix=True, middle=False) == "name"
+   assert basename("name inc. ltd", terms, prefix=False, suffix=True, middle=False) == "name inc."
