@@ -80,7 +80,7 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
         for termsize, termparts in terms:
             if termsize > 1:
                 sizediff = nnsize - termsize
-                if sizediff > 1 and termparts == ["as.", "oy"]:
+                if sizediff > 1:
                     for i in range(0, nnsize-termsize+1):
                         if termparts == nnparts[i:i+termsize]:
                             del nnparts[i:i+termsize]
