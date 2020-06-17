@@ -26,6 +26,7 @@ def test_basic_cleanups(terms):
 
 multi_cleanup_tests = {
    "name + suffix":          "Hello World Oy",
+   "name + suffix (without punct)":          "Hello World sro",
    "prefix + name":          "Oy Hello World",
    "prefix + name + suffix": "Oy Hello World Ab",
    "name w/ term in middle": "Hello Oy World",
@@ -87,3 +88,13 @@ def test_with_unicode_umlauted_name(terms):
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in unicode_umlaut_tests.items():
       assert basename(variation, terms, prefix=True) == expected, errmsg % testname
+
+terms_with_accents_tests = {
+   "term with ł correct spelling": ("Łoś spółka z o.o", "Łoś"),
+   "term with ł incorrect spelling": ("Łoś spolka z o.o", "Łoś"),
+}
+
+def test_terms_with_accents(terms):
+   errmsg = "preserving cleanup of %s failed"
+   for testname, (variation, expected) in terms_with_accents_tests.items():
+      assert basename(variation, terms, suffix=True) == expected, errmsg % testname
