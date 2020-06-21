@@ -7,6 +7,19 @@ from cleanco import prepare_terms, basename
 def terms():
    return prepare_terms()
 
+
+def test_deterministic_terms(monkeypatch):
+   """prepare_terms should always return the same list (even for different ordering in get_unique_terms)"""
+   from cleanco import clean
+   with monkeypatch.context() as m:
+      mock_terms = ["aaa", "bbb", "ccc"]
+      m.setattr(clean, "get_unique_terms", lambda: mock_terms)
+      res1 = clean.prepare_terms()
+      m.setattr(clean, "get_unique_terms", lambda: reversed(mock_terms))
+      res2 = clean.prepare_terms()
+      assert res1 == res2
+
+
 # Tests that demonstrate stuff is stripped away
 
 basic_cleanup_tests = {
@@ -88,6 +101,7 @@ def test_with_unicode_umlauted_name(terms):
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in unicode_umlaut_tests.items():
       assert basename(variation, terms, prefix=True) == expected, errmsg % testname
+
 
 terms_with_accents_tests = {
    "term with ł correct spelling": ("Łoś spółka z o.o", "Łoś"),
