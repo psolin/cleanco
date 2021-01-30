@@ -5,6 +5,10 @@ Changelog
 ----------------
 
 - Support Python 3.6-3.9
+- Changed base_name to make it deterministic
+- Changed base_name to ignore punctuation for matching terms
+- Fixed normalization of some Unicode characters
+- Fixed an error in handling base_name with parameter middle=True
 
 2.0.1 (2020-04-26)
 -------------------
