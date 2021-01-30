@@ -63,21 +63,9 @@ def normalized(text):
     return remove_accents(text)
 
 
-def prepare_terms(custom_terms=None):
-    """
-    construct an optimized term structure for basename extraction
-
-    :param custom_terms:    list of custom / additional terms 
-    
-    :return:    list of splited and normalized tuples in the following format:
-
-                input: list of terms        ["GmbH & Co. KG", "C. POR A."]
-                output: list of tuples      [(4, ['gmbh', '&', 'co.', 'kg']), 
-                                             (3, ['c.', 'por', 'a.'])]
-       where    4 - is the number of tokens in the term "GmbH & Co. KG" 
-    """
+def prepare_terms():
+    "construct an optimized term structure for basename extraction"
     terms = get_unique_terms()
-    terms |= set(normalize_terms(custom_terms))
     nterms = normalize_terms(terms)
     ntermparts = (t.split() for t in nterms)
     # make sure that the result is deterministic, sort terms descending by number of tokens, ascending by names
