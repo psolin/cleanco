@@ -83,4 +83,4 @@ To run tests, simply install the package and run `python setup.py test`. To run 
 ## Special thanks to:
 
 - Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity), where I spent hours of research.
-- Contributors: Petri Savolainen <petri.savolainen@koodaamo.fi>
+- Contributors: [Petri Savolainen](https://github.com/petri)
