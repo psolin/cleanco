@@ -1,5 +1,7 @@
 # cleanco - clean organization names
 
+![Python package](https://github.com/psolin/cleanco/workflows/Python%20package/badge.svg?branch=master)
+
 ## What is it / what does it do?
 
 This is a Python package that processes company names, providing cleaned versions of the
