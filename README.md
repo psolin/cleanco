@@ -1,6 +1,7 @@
 # cleanco - clean organization names
 
-![Python package](https://github.com/psolin/cleanco/workflows/Python%20package/badge.svg?branch=master)
+![Python package](https://github.com/psolin/cleanco/workflows/Python%20package/badge.svg)
+![CodeQL](https://github.com/psolin/cleanco/workflows/CodeQL/badge.svg)
 
 ## What is it / what does it do?
 
