@@ -1,5 +1,8 @@
 # cleanco - clean organization names
 
+![Python package](https://github.com/psolin/cleanco/workflows/Python%20package/badge.svg)
+![CodeQL](https://github.com/psolin/cleanco/workflows/CodeQL/badge.svg)
+
 ## What is it / what does it do?
 
 This is a Python package that processes company names, providing cleaned versions of the
@@ -83,4 +86,4 @@ To run tests, simply install the package and run `python setup.py test`. To run 
 ## Special thanks to:
 
 - Wikipedia's [Types of Business Entity article](http://en.wikipedia.org/wiki/Types_of_business_entity), where I spent hours of research.
-- Contributors: Petri Savolainen <petri.savolainen@koodaamo.fi>
+- Contributors: [Petri Savolainen](https://github.com/petri)

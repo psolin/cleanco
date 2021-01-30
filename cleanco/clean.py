@@ -17,7 +17,7 @@ from collections import OrderedDict
 import re
 import unicodedata
 from .termdata import terms_by_type, terms_by_country
-
+from .non_nfkd_map import NON_NFKD_MAP
 
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
 
@@ -28,9 +28,26 @@ def get_unique_terms():
     cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
     return set(ts + cs)
 
+
+def remove_accents(t):
+    """based on https://stackoverflow.com/a/51230541"""
+    nfkd_form = unicodedata.normalize('NFKD', t.casefold())
+    return ''.join(
+        NON_NFKD_MAP[c]
+            if c in NON_NFKD_MAP
+        else c
+            for part in nfkd_form for c in part
+            if unicodedata.category(part) != 'Mn'
+        )
+
+
+def strip_punct(t):
+    return t.replace(".", "").replace(",", "").replace("-", "")
+
+
 def normalize_terms(terms):
     "normalize terms"
-    return (unicodedata.normalize("NFKD", t.casefold()) for t in terms)
+    return (strip_punct(remove_accents(t)) for t in terms)
 
 
 def strip_tail(name):
@@ -43,7 +60,7 @@ def strip_tail(name):
 
 def normalized(text):
     "caseless Unicode normalization"
-    return unicodedata.normalize("NFKD", text.casefold())
+    return remove_accents(text)
 
 
 def prepare_terms():
@@ -51,7 +68,8 @@ def prepare_terms():
     terms = get_unique_terms()
     nterms = normalize_terms(terms)
     ntermparts = (t.split() for t in nterms)
-    sntermparts = sorted(ntermparts, key=len, reverse=True)
+    # make sure that the result is deterministic, sort terms descending by number of tokens, ascending by names
+    sntermparts = sorted(ntermparts, key=lambda x: (-len(x), x))
     return [(len(tp), tp) for tp in sntermparts]
 
 
@@ -61,7 +79,7 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
     name = strip_tail(name)
     nparts = name.split()
     nname = normalized(name)
-    nnparts = nname.split()
+    nnparts = list(map(strip_punct, nname.split()))
     nnsize = len(nnparts)
 
     if suffix:
@@ -80,7 +98,7 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
         for termsize, termparts in terms:
             if termsize > 1:
                 sizediff = nnsize - termsize
-                if sizediff > 1 and termparts == ["as.", "oy"]:
+                if sizediff > 1:
                     for i in range(0, nnsize-termsize+1):
                         if termparts == nnparts[i:i+termsize]:
                             del nnparts[i:i+termsize]
