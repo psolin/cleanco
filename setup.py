@@ -11,7 +11,7 @@ setup(name='cleanco',
       description='Python library to process company names',
       long_description=long_description,
       long_description_content_type='text/markdown',
-      version='2.1-dev0',
+      version='2.1',
       license="MIT",
       classifiers = [
          "Topic :: Office/Business",

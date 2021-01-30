@@ -1,14 +1,16 @@
 Changelog
 **********
 
-2.1 (unreleased)
+2.1 (2021-01-30)
 ----------------
 
-- Support Python 3.6-3.9
-- Changed base_name to make it deterministic
-- Changed base_name to ignore punctuation for matching terms
-- Fixed normalization of some Unicode characters
-- Fixed an error in handling base_name with parameter middle=True
+- Support Python 3.6 - 3.9
+- Fix basename() so it works deterministically
+- Improve  basename() so it ignores punctuation for matching terms
+- Fix normalization of some Unicode characters
+- Fix an error when basename() is invoked with middle=True kwarg
+- Drop Travis CI in favour of Github actions
+
 
 2.0.1 (2020-04-26)
 -------------------
