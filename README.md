@@ -29,7 +29,7 @@ Let's look at some sample code. To get the base name of a business without legal
     >>> from cleanco import prepare_terms, basename
     >>> business_name = "Some Big Pharma, LLC"
     >>> terms = prepare_terms()
-    >>> basename(name, terms, prefix=False, middle=False, suffix=True)
+    >>> basename(business_name, terms, prefix=False, middle=False, suffix=True)
     >>> 'Some Big Pharma'
 
 Note that sometimes a name may have e.g. two different suffixes after one another. The cleanco
