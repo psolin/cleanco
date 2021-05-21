@@ -73,9 +73,10 @@ def prepare_terms():
     return [(len(tp), tp) for tp in sntermparts]
 
 
-def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
+def basename(name, suffix=True, prefix=False, middle=False, **kwargs):
     "return cleaned base version of the business name"
 
+    terms = prepare_terms()
     name = strip_tail(name)
     nparts = name.split()
     nname = normalized(name)
