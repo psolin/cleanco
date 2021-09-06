@@ -28,7 +28,7 @@ terms_by_type = {
    ],
    'Limited Liability Limited Partnership': ['lllp', 'l.l.l.p.'],
    'Limited Liability Partnership': ['llp', 'l.l.p.', 'sp.p.', 's.c.a.', 's.c.s.'],
-   'Limited Partnership': ['gmbh & co. kg', 'gmbh & co. kg', 'lp', 'l.p.', 's.c.s.',
+   'Limited Partnership': ['gmbh & co. kg', 'lp', 'l.p.', 's.c.s.',
       's.c.p.a', 'comm.v', 'k.d.', 'k.d.a.', 's. en c.', 'e.e.', 's.a.s.', 's. en c.',
       'c.v.', 's.k.a.', 'sp.k.', 's.cra.', 'ky', 'scs', 'kg', 'kd', 'k/s', 'ee', 'secs',
       'kda', 'ks', 'kb','kt'
@@ -79,8 +79,8 @@ terms_by_country = {
    'France': ['sicav', 'sarl', 'sogepa', 'ei', 'eurl', 'sasu', 'fcp', 'gie', 'sep', 'snc',
       'scs', 'sca', 'scop', 'sem', 'sas'
    ],
-   'Germany': ['gmbh & co. kg', 'gmbh & co. kg', 'e.g.', 'e.v.', 'gbr', 'ohg', 'partg',
-      'kgaa', 'gmbh', 'g.m.b.h.', 'ag'
+   'Germany': ['gmbh & co. kg', 'e.g.', 'e.v.', 'gbr', 'ohg', 'partg',
+      'kgaa', 'gmbh', 'g.m.b.h.', 'ag', 'mbh & co. kg'
    ],
    'Greece': ['a.e.', 'ae', 'e.e.', 'ee', 'epe', 'e.p.e.', 'mepe', 'm.e.p.e.', 'o.e.',
       'oe', 'ovee', 'o.v.e.e.'
