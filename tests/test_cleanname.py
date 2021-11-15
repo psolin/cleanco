@@ -1,22 +1,22 @@
 # encoding: utf-8
 import pytest
-from cleanco import prepare_terms, basename
+from cleanco import prepare_default_terms, basename
 
 
 @pytest.fixture
 def terms():
-   return prepare_terms()
+   return prepare_default_terms()
 
 
 def test_deterministic_terms(monkeypatch):
-   """prepare_terms should always return the same list (even for different ordering in get_unique_terms)"""
+   """prepare_default_terms should always return the same list (even for different ordering in get_unique_terms)"""
    from cleanco import clean
    with monkeypatch.context() as m:
       mock_terms = ["aaa", "bbb", "ccc"]
       m.setattr(clean, "get_unique_terms", lambda: mock_terms)
-      res1 = clean.prepare_terms()
+      res1 = clean.prepare_default_terms()
       m.setattr(clean, "get_unique_terms", lambda: reversed(mock_terms))
-      res2 = clean.prepare_terms()
+      res2 = clean.prepare_default_terms()
       assert res1 == res2
 
 

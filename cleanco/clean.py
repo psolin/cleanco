@@ -5,7 +5,7 @@ on Unicode normalization and the NFKD normalization used here.
 
 Basic usage:
 
->> terms = prepare_terms()
+>> terms = prepare_default_terms()
 >> basename("Daddy & Sons, Ltd.", terms, prefix=True, middle=True, suffix=True)
 Daddy & Sons
 
@@ -63,7 +63,7 @@ def normalized(text):
     return remove_accents(text)
 
 
-def prepare_terms():
+def prepare_default_terms():
     "construct an optimized term structure for basename extraction"
     terms = get_unique_terms()
     nterms = normalize_terms(terms)
