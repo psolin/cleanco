@@ -73,9 +73,10 @@ def prepare_default_terms():
     return [(len(tp), tp) for tp in sntermparts]
 
 
-def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
+def custom_basename(name, terms=None, suffix=True, prefix=False, middle=False, **kwargs):
     "return cleaned base version of the business name"
 
+    terms = terms or get_default_terms()
     name = strip_tail(name)
     nparts = name.split()
     nname = normalized(name)
@@ -113,3 +114,5 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
     return strip_tail(" ".join(nparts))
 
 
+# convenience for most common use cases that don't parametrize base name extraction
+basename = functools.partial(custom_basename, terms=prepare_default_terms())

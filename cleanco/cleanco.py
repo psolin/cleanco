@@ -1,4 +1,4 @@
-from .clean import prepare_default_terms, basename
+from .clean import basename
 from .classify import typesources, countrysources, matches
 
 
@@ -9,10 +9,9 @@ class cleanco:
       self._name = name
       self._types = typesources()
       self._countries = countrysources()
-      self._terms = prepare_default_terms()
 
    def clean_name(self):
-      return basename(self._name, self._terms)
+      return basename(self._name)
 
    def country(self):
       return matches(self._name, self._countries)

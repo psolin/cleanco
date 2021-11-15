@@ -1,11 +1,6 @@
 # encoding: utf-8
 import pytest
-from cleanco import prepare_default_terms, basename
-
-
-@pytest.fixture
-def terms():
-   return prepare_default_terms()
+from cleanco import basename
 
 
 def test_deterministic_terms(monkeypatch):
@@ -31,11 +26,11 @@ basic_cleanup_tests = {
    "name w/ ws suffix dot ws": " Hello World ltd. ",
 }
 
-def test_basic_cleanups(terms):
+def test_basic_cleanups():
    expected = "Hello World"
    errmsg = "cleanup of %s failed"
    for testname, variation in basic_cleanup_tests.items():
-      assert basename(variation, terms) == expected, errmsg % testname
+      assert basename(variation) == expected, errmsg % testname
 
 multi_cleanup_tests = {
    "name + suffix":          "Hello World Oy",
@@ -47,11 +42,11 @@ multi_cleanup_tests = {
    "name w/ mid + suffix":   "Hello Oy World Ab"
 }
 
-def test_multi_type_cleanups(terms):
+def test_multi_type_cleanups():
    expected = "Hello World"
    errmsg = "cleanup of %s failed"
    for testname, variation in multi_cleanup_tests.items():
-      result = basename(variation, terms, prefix=True, suffix=True, middle=True)
+      result = basename(variation, prefix=True, suffix=True, middle=True)
       assert result == expected, errmsg % testname
 
 
@@ -63,12 +58,12 @@ double_cleanup_tests = {
    "name + two in middle":   "Hello Ab Oy World"
 }
 
-def test_double_cleanups(terms):
+def test_double_cleanups():
    expected = "Hello World"
    errmsg = "cleanup of %s failed"
    for testname, variation in multi_cleanup_tests.items():
-      result = basename(variation, terms, prefix=True, suffix=True, middle=True)
-      final = basename(result, terms, prefix=True, suffix=True, middle=True)
+      result = basename(variation, prefix=True, suffix=True, middle=True)
+      final = basename(result, prefix=True, suffix=True, middle=True)
 
       assert final == expected, errmsg % testname
 
@@ -79,10 +74,10 @@ preserving_cleanup_tests = {
    "name with dot": ("Hello. World, Oy", "Hello. World")
 }
 
-def test_preserving_cleanups(terms):
+def test_preserving_cleanups():
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in preserving_cleanup_tests.items():
-      assert basename(variation, terms) == expected, errmsg % testname
+      assert basename(variation) == expected, errmsg % testname
 
 # Test umlauts
 
@@ -97,10 +92,10 @@ unicode_umlaut_tests = {
 
 }
 
-def test_with_unicode_umlauted_name(terms):
+def test_with_unicode_umlauted_name():
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in unicode_umlaut_tests.items():
-      assert basename(variation, terms, prefix=True) == expected, errmsg % testname
+      assert basename(variation, prefix=True) == expected, errmsg % testname
 
 
 terms_with_accents_tests = {
@@ -108,7 +103,7 @@ terms_with_accents_tests = {
    "term with ł incorrect spelling": ("Łoś spolka z o.o", "Łoś"),
 }
 
-def test_terms_with_accents(terms):
+def test_terms_with_accents():
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in terms_with_accents_tests.items():
-      assert basename(variation, terms, suffix=True) == expected, errmsg % testname
+      assert basename(variation, suffix=True) == expected, errmsg % testname
