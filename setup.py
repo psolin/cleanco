@@ -13,6 +13,7 @@ setup(name='cleanco',
       long_description_content_type='text/markdown',
       version='2.2-dev0',
       license="MIT",
+      license_files=('LICENSE.txt',),
       classifiers = [
          "Topic :: Office/Business",
          "Development Status :: 4 - Beta",
