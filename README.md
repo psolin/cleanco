@@ -26,14 +26,15 @@ Just use 'pip install cleanco' if you have pip installed (as most systems do). O
 ## How does it work?
 Let's look at some sample code. To get the base name of a business without legal suffix:
 
-    >>> from cleanco import prepare_default_terms, basename
+    >>> from cleanco import basename
     >>> business_name = "Some Big Pharma, LLC"
-    >>> terms = prepare_default_terms()
-    >>> basename(business_name, terms, prefix=False, middle=False, suffix=True)
+    >>> basename(business_name)
     >>> 'Some Big Pharma'
 
 Note that sometimes a name may have e.g. two different suffixes after one another. The cleanco
-term data covers many of these but you may want to run `basename()` twice, just in case.
+term data covers many of these, but you may want to run `basename()` twice on the name, just in case.
+
+If you want to use your custom terms, please see  `custom_basename()` that also provides some other ways to adjust how base name is produced.
 
 To get the business type or country:
 
@@ -49,34 +50,6 @@ To get the possible countries of jurisdiction:
     >>> matches("Some Big Pharma, LLC", classification_sources) ´
     ['United States of America', 'Philippines']
 
-The legacy (versions < 2.0) way can still be used, too, but will eventually be discontinued:
-
-Import the utility class:
-
-    >>> from cleanco import cleanco
-
-Prepare a string of a company name that you want to process:
-
-    >>> business_name = "Some Big Pharma, LLC"
-
-Throw it into the instance:
-
-    >>> x = cleanco(business_name)
-
-You can now get the company types:
-
-    >>> x.type()
-    ['Limited Liability Company']
-
-...the possible countries...
-
-    >>> x.country()
-    ['United States of America', 'Philippines']
-
-...and a clean version of the company name.
-
-    >>> x.clean_name()
-    'Some Big Pharma'
 
 ## Are there bugs?
 See the issue tracker. If you find a bug or have enhancement suggestion or question, please file an issue and provide a PR if you can. For example, some of the company suffixes may be incorrect or there may be suffixes missing.

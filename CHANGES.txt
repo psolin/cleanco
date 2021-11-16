@@ -1,11 +1,14 @@
 Changelog
 **********
 
-2.2 (Unpublished)
+2.2 (2021-11-16)
 -----------------
 
-- Nothing yet
-
+- Terms no longer need to be explicitly passed to basename()
+- New custom_basename() can be used with custom terms
+- prepare_terms() was renamed to prepare_default_terms()
+- Tests were simplified
+- Old class based API was removed
 
 2.1 (2021-01-30)
 ----------------
