@@ -5,7 +5,7 @@ on Unicode normalization and the NFKD normalization used here.
 
 Basic usage:
 
->> terms = prepare_terms()
+>> terms = prepare_default_terms()
 >> basename("Daddy & Sons, Ltd.", terms, prefix=True, middle=True, suffix=True)
 Daddy & Sons
 
@@ -63,7 +63,7 @@ def normalized(text):
     return remove_accents(text)
 
 
-def prepare_terms():
+def prepare_default_terms():
     "construct an optimized term structure for basename extraction"
     terms = get_unique_terms()
     nterms = normalize_terms(terms)
@@ -73,7 +73,7 @@ def prepare_terms():
     return [(len(tp), tp) for tp in sntermparts]
 
 
-def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
+def custom_basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
     "return cleaned base version of the business name"
 
     name = strip_tail(name)
@@ -113,3 +113,5 @@ def basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
     return strip_tail(" ".join(nparts))
 
 
+# convenience for most common use cases that don't parametrize base name extraction
+basename = functools.partial(custom_basename, terms=prepare_default_terms())

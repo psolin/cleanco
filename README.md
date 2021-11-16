@@ -26,9 +26,9 @@ Just use 'pip install cleanco' if you have pip installed (as most systems do). O
 ## How does it work?
 Let's look at some sample code. To get the base name of a business without legal suffix:
 
-    >>> from cleanco import prepare_terms, basename
+    >>> from cleanco import prepare_default_terms, basename
     >>> business_name = "Some Big Pharma, LLC"
-    >>> terms = prepare_terms()
+    >>> terms = prepare_default_terms()
     >>> basename(business_name, terms, prefix=False, middle=False, suffix=True)
     >>> 'Some Big Pharma'
 
