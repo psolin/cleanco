@@ -74,7 +74,7 @@ terms_by_country = {
    ],
    'Ecuador': ['s.a.', 'c.a.', 'sa', 'ep'],
    'Egypt': ['sae'],
-   'Estonia': ['fie'],
+   'Estonia': ['fie', 'oü', 'as'],
    'Finland': ['t:mi', 'tmi', 'as oy', 'as.oy', 'ay', 'ky', 'oy', 'oyj', 'ok'],
    'France': ['sicav', 'sarl', 'sogepa', 'ei', 'eurl', 'sasu', 'fcp', 'gie', 'sep', 'snc',
       'scs', 'sca', 'scop', 'sem', 'sas'
