@@ -75,7 +75,7 @@ terms_by_country = {
    'Ecuador': ['s.a.', 'c.a.', 'sa', 'ep'],
    'Egypt': ['sae'],
    'Estonia': ['fie'],
-   'Finland': ['t:mi', 'tmi', 'as oy', 'as.oy', 'ay', 'ky', 'oy', 'oyj', 'ok'],
+   'Finland': ['t:mi', 'tmi', 'as oy', 'as.oy', 'ay', 'ky', 'oy', 'oyj', 'ok', 'ab ltd'],
    'France': ['sicav', 'sarl', 'sogepa', 'ei', 'eurl', 'sasu', 'fcp', 'gie', 'sep', 'snc',
       'scs', 'sca', 'scop', 'sem', 'sas'
    ],
@@ -100,7 +100,7 @@ terms_by_country = {
    'Latvia': ['as', 'sia', 'ik', 'ps', 'ks'],
    'Lebanon': ['sal'],
    'Lithuania': ['uab', 'ab', 'ij', 'mb'],
-   'Luxemborg': ['s.a.', 's.a.r.l.', 'secs'],
+   'Luxemborg': ['s.a.', 's.a.r.l.', 's.a r.l.', 'secs'],
    'Macedonia': ['d.o.o.', 'd.o.o.e.l', 'k.d.a.', 'j.t.d.', 'a.d.', 'k.d.'],
    'Malaysia': ['bhd.', 'sdn. bhd.'],
    'Mexico': ['s.a.', 's. de. r.l.', 's. en c.', 's.a.b.', 's.a.p.i.'],

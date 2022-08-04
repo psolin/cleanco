@@ -23,7 +23,8 @@ basic_cleanup_tests = {
    "name w/ ws suffix ws":     "Hello    World ltd",
    "name w/ suffix ws":        "Hello World ltd ",
    "name w/ suffix dot ws":    "Hello World ltd. ",
-   "name w/ ws suffix dot ws": " Hello World ltd. ",
+   "name w/ ws suffix dot ws": " Hello World ",
+   "name w/ suffix including accents and whitespace": "Hello World S.à r.l."
 }
 
 def test_basic_cleanups():
@@ -54,6 +55,7 @@ def test_multi_type_cleanups():
 
 double_cleanup_tests = {
    "name + two prefix":      "Ab Oy Hello World",
+   "name + two prefix":      "Hello World Ab Ltd",
    "name + two suffix":      "Hello World Ab Oy",
    "name + two in middle":   "Hello Ab Oy World"
 }
