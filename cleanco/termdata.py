@@ -103,7 +103,7 @@ terms_by_country = {
    'Luxemborg': ['s.a.', 's.a.r.l.', 'secs'],
    'Macedonia': ['d.o.o.', 'd.o.o.e.l', 'k.d.a.', 'j.t.d.', 'a.d.', 'k.d.'],
    'Malaysia': ['bhd.', 'sdn. bhd.'],
-   'Mexico': ['s.a.', 's. de. r.l.', 's. en c.', 's.a.b.', 's.a.p.i.'],
+   'Mexico': ['s.a.', 's. de. r.l.', 's. en c.', 's.a.b.', 's.a.p.i.', 's.a. de c.v.'],
    'Mongolia': ['xk', 'xxk'],
    'Netherlands': ['v.o.f.', 'c.v.', 'b.v.', 'n.v.'],
    'New Zealand': ['tapui', 'ltd', 'limited'],
