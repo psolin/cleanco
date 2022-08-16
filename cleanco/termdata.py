@@ -97,6 +97,7 @@ terms_by_country = {
    'Ireland': ['cpt', 'teo'],
    'Israel': ['b.m.', 'bm', 'ltd', 'limited'],
    'Italy': ['s.n.c.', 's.a.s.', 's.p.a.', 's.a.p.a.', 's.r.l.', 's.c.r.l.', 's.s.'],
+   'Japan': ['k.k.','g.k.','gk','y.k.'],
    'Latvia': ['as', 'sia', 'ik', 'ps', 'ks'],
    'Lebanon': ['sal'],
    'Lithuania': ['uab', 'ab', 'ij', 'mb'],
