@@ -19,7 +19,8 @@ import unicodedata
 from .non_nfkd_map import NON_NFKD_MAP
 from .termdata import country_name_by_country, terms_by_country, terms_by_type
 
-tail_removal_rexp = re.compile(r"[^\.\)\w]+$", flags=re.UNICODE)
+tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
+parenthesis_removal_rexp = re.compile(r"\s*\(.*\)\s*")
 
 
 def get_unique_terms():
@@ -43,7 +44,7 @@ def remove_accents(t):
 
 
 def strip_punct(t):
-    return t.replace(".", "").replace(",", "").replace("-", "").replace("(", "").replace(")", "")
+    return t.replace(".", "").replace(",", "").replace("-", "")
 
 
 def normalize_terms(terms):
@@ -114,5 +115,6 @@ def custom_basename(name, terms, suffix=True, prefix=False, middle=False, **kwar
 
 
 def basename(name, suffix=True, prefix=True, middle=False):
-    intermediate = custom_basename(name, prepare_default_terms(), suffix=suffix, prefix=prefix, middle=middle)
+    no_parenthesis = parenthesis_removal_rexp.sub(' ', name).strip()
+    intermediate = custom_basename(no_parenthesis, prepare_default_terms(), suffix=suffix, prefix=prefix, middle=middle)
     return custom_basename(intermediate, prepare_default_terms(), suffix=suffix, prefix=prefix, middle=middle)
