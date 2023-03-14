@@ -13,16 +13,20 @@ Daddy & Sons
 
 import functools
 import operator
-from collections import OrderedDict
 import re
 import unicodedata
-from .termdata import terms_by_type, terms_by_country
+from typing import Optional, Set
+
 from .non_nfkd_map import NON_NFKD_MAP
+from .termdata import country_codes, terms_by_country, terms_by_type
 
 tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
 
 
-def get_unique_terms():
+def get_unique_terms(country: Optional[str] = None) -> Set[str]:
+    if country in terms_by_country:
+        return set(terms_by_country[country])
+
     "retrieve all unique terms from termdata definitions"
     ts = functools.reduce(operator.iconcat, terms_by_type.values(), [])
     cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
@@ -63,9 +67,9 @@ def normalized(text):
     return remove_accents(text)
 
 
-def prepare_default_terms():
+def prepare_default_terms(country: Optional[str] = None):
     "construct an optimized term structure for basename extraction"
-    terms = get_unique_terms()
+    terms = get_unique_terms(country)
     nterms = normalize_terms(terms)
     ntermparts = (t.split() for t in nterms)
     # make sure that the result is deterministic, sort terms descending by number of tokens, ascending by names
@@ -114,4 +118,7 @@ def custom_basename(name, terms, suffix=True, prefix=False, middle=False, **kwar
 
 
 # convenience for most common use cases that don't parametrize base name extraction
-basename = functools.partial(custom_basename, terms=prepare_default_terms())
+def basename(name, terms=None, country=None, **kwargs):
+    if terms is None:
+        terms = prepare_default_terms(country_codes.get(country, country))
+    return custom_basename(name, terms=terms, **kwargs)

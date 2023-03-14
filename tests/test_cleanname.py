@@ -8,9 +8,9 @@ def test_deterministic_terms(monkeypatch):
    from cleanco import clean
    with monkeypatch.context() as m:
       mock_terms = ["aaa", "bbb", "ccc"]
-      m.setattr(clean, "get_unique_terms", lambda: mock_terms)
+      m.setattr(clean, "get_unique_terms", lambda _: mock_terms)
       res1 = clean.prepare_default_terms()
-      m.setattr(clean, "get_unique_terms", lambda: reversed(mock_terms))
+      m.setattr(clean, "get_unique_terms", lambda _: reversed(mock_terms))
       res2 = clean.prepare_default_terms()
       assert res1 == res2
 
@@ -107,3 +107,29 @@ def test_terms_with_accents():
    errmsg = "preserving cleanup of %s failed"
    for testname, (variation, expected) in terms_with_accents_tests.items():
       assert basename(variation, suffix=True) == expected, errmsg % testname
+
+
+various_company_names = [
+   ("FI", "Oy Grundfos Pumput Ab", "Grundfos Pumput"),
+   ("FI", "Suomen Euromaster Oy", "Suomen Euromaster"),
+   ("FI", "TL Trans Oy", "TL Trans"),
+   ("FI", "Tmi Siivouspalvelu Myrberg", "Siivouspalvelu Myrberg"),
+   ("FI", "EV Finland Oy", "EV Finland"),
+   ("SE", "EV Finland Oy", "EV Finland Oy"),
+   ("SE", "A Tavola AB", "A Tavola"),
+   ("SE", "Skultuna Reklam of Sweden", "Skultuna Reklam of Sweden"),
+   ("NO", "Myklebust Eigedomsselskap AS", "Myklebust Eigedomsselskap"),
+   ("NO", "Ab Invest I AS", "Invest I"),
+   ("NO", "NLM NAAN ANS", "NLM NAAN"),
+   ("US", "BOSCO'S AUTOMOTIVE INC", "BOSCO'S AUTOMOTIVE"),
+   ("US", "BOA Financial Consulting LLC", "BOA Financial Consulting"),
+   ("US", "Proper Pie Co., LLC", "Proper Pie Co."),
+   (None, "B&C ENTERPRISES, LLC", "B&C ENTERPRISES"),
+   (None, "MAX 99P LTD", "MAX 99P"),
+   (None, "Juniper Holdings S.à r.l.", "Juniper Holdings"),
+]
+
+def test_problematic_cases():
+   for country, input_name, expected in various_company_names:
+      cleaned_name = basename(input_name, prefix=True, country=country)
+      assert cleaned_name == expected, f"{input_name} got cleaned up to {cleaned_name} instead of {expected}"
