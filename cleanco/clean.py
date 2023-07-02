@@ -19,7 +19,7 @@ import unicodedata
 from .termdata import terms_by_type, terms_by_country
 from .non_nfkd_map import NON_NFKD_MAP
 
-tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
+tail_removal_rexp = re.compile(r"[^\.\w)]+$", flags=re.UNICODE)
 
 
 def get_unique_terms():
