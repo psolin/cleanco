@@ -71,7 +71,8 @@ def test_double_cleanups():
 
 preserving_cleanup_tests = {
    "name with comma": ("Hello, World, ltd.", "Hello, World"),
-   "name with dot": ("Hello. World, Oy", "Hello. World")
+   "name with dot": ("Hello. World, Oy", "Hello. World"),
+   "name ending with closing parenthesis": ("Hello World (Country) Ltd.", "Hello World (Country)"),
 }
 
 def test_preserving_cleanups():
