@@ -1,6 +1,12 @@
 Changelog
 **********
 
+2.3 (2024-05-15)
+-----------------
+
+- Suffix and term improvements
+- Support Python 3.8-3.12
+
 2.2 (2021-11-16)
 -----------------
 
