@@ -12,7 +12,7 @@ terms_by_type = {
       'yoaj', 'oaj', 'akc. spol.', 'a.s.'
    ],
    'Joint Venture': ['esv', 'gie', 'kv.', 'qk'],
-   'Limited': ['pty. ltd.', 'pty ltd', 'ltd', 'l.t.d.', 'bvba', 'd.o.o.', 'ltda', 'gmbh',
+   'Limited': ['pty. ltd.', 'pty ltd', 'ltd', 'ltd.', 'l.t.d.', 'bvba', 'd.o.o.', 'ltda', 'gmbh',
       'g.m.b.h', 'kft.', 'kht.', 'zrt.', 'ehf.', 's.a.r.l.', 'd.o.o.e.l.', 's. de r.l.',
       'b.v.', 'tapui',
       'sp. z.o.o.', 'sp. z o.o.', 'spółka z o.o.',
