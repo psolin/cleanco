@@ -22,7 +22,7 @@ from .clean import strip_tail, normalized
 
 
 def typesources():
-   "business types / abbreviations sorted by length of business type"
+   """business types / abbreviations sorted by length of business type"""
    types = []
    for business_type in terms_by_type:
        for item in terms_by_type[business_type]:
@@ -32,7 +32,7 @@ def typesources():
 
 
 def countrysources():
-   "business countries / type abbreviations sorted by length of type abbreviations"
+   """business countries / type abbreviations sorted by length of type abbreviations"""
    countries = []
    for country in terms_by_country:
        for item in terms_by_country[country]:
@@ -42,12 +42,12 @@ def countrysources():
 
 
 def matches(name, sources):
-    "get types or countries matching with the legal terms in name"
+    """get types or countries matching with the legal terms in name"""
 
     name = strip_tail(name)
     parts = name.split()
     nparts = [normalized(p) for p in parts]
-    matches = []
+    matched = []
     for classifier, term in sources:
         nterm = normalized(term)
         try:
@@ -55,7 +55,7 @@ def matches(name, sources):
         except ValueError:
             pass
         else:
-            matches.append(classifier)
+            matched.append(classifier)
 
-    return matches
+    return matched
 
