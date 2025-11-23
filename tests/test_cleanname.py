@@ -449,7 +449,7 @@ unicode_non_latin_scripts_tests = {
     "Japanese (Kanji + Hiragana)": ('株式会社サンプル', '株式会社サンプル'),
     "Korean (Hangul)": ('삼성전자 주식회사', '삼성전자 주식회사'),
     "Thai script": ('บริษัท จำกัด', 'บริษัท จำกัด'),
-    "Greek alphabet": ('Εταιρεία Περιορισμένης Ευθύνης', 'Εταιρεία Περιορισμένης Ευθύνης'),
+    "Greek alphabet": ('Ελληνική Επιχείρηση', 'Ελληνική Επιχείρηση'),
     "Chinese with English suffix": ('北京公司 Ltd', '北京公司'),
     "Cyrillic with English suffix": ('Москва Corporation', 'Москва'),
     "Japanese with English suffix": ('東京株式会社 Inc.', '東京株式会社'),
