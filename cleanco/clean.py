@@ -1,6 +1,6 @@
 """Functions to help clean & normalize business names.
 
-See http://www.unicode.org/reports/tr15/#Normalization_Forms_Table for details
+See https://www.unicode.org/reports/tr15/#Normalization_Forms_Table for details
 on Unicode normalization and the NFKD normalization used here.
 
 Basic usage:
@@ -13,17 +13,16 @@ Daddy & Sons
 
 import functools
 import operator
-from collections import OrderedDict
 import re
 import unicodedata
 from .termdata import terms_by_type, terms_by_country
 from .non_nfkd_map import NON_NFKD_MAP
 
-tail_removal_rexp = re.compile(r"[^\.\w]+$", flags=re.UNICODE)
+tail_removal_rexp = re.compile(r"[^.\w]+$", flags=re.UNICODE)
 
 
 def get_unique_terms():
-    "retrieve all unique terms from termdata definitions"
+    """retrieve all unique terms from termdata definitions"""
     ts = functools.reduce(operator.iconcat, terms_by_type.values(), [])
     cs = functools.reduce(operator.iconcat, terms_by_country.values(), [])
     return set(ts + cs)
@@ -46,12 +45,12 @@ def strip_punct(t):
 
 
 def normalize_terms(terms):
-    "normalize terms"
+    """normalize terms"""
     return (strip_punct(remove_accents(t)) for t in terms)
 
 
 def strip_tail(name):
-    "get rid of all trailing non-letter symbols except the dot"
+    """get rid of all trailing non-letter symbols except the dot"""
     match = re.search(tail_removal_rexp, name)
     if match is not None:
         name = name[: match.span()[0]]
@@ -59,12 +58,12 @@ def strip_tail(name):
 
 
 def normalized(text):
-    "caseless Unicode normalization"
+    """caseless Unicode normalization"""
     return remove_accents(text)
 
 
 def prepare_default_terms():
-    "construct an optimized term structure for basename extraction"
+    """construct an optimized term structure for basename extraction"""
     terms = get_unique_terms()
     nterms = normalize_terms(terms)
     ntermparts = (t.split() for t in nterms)
@@ -74,7 +73,7 @@ def prepare_default_terms():
 
 
 def custom_basename(name, terms, suffix=True, prefix=False, middle=False, **kwargs):
-    "return cleaned base version of the business name"
+    """return cleaned base version of the business name"""
 
     name = strip_tail(name)
     nparts = name.split()
