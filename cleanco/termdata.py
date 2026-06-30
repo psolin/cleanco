@@ -685,8 +685,12 @@ terms_by_country = {
         "ud",
     ],
     "Ireland": [
+        "clg",
         "cpt",
+        "dac",
         "teo",
+        "teoranta",
+        "ulc",
     ],
     "Israel": [
         "b.m.",
